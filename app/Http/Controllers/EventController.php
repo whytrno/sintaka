@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 // UPDATE IMAGE
 use Illuminate\Support\Facades\Storage;
+use App\Models\DestinationType;
 
 class EventController extends Controller
 {
@@ -18,16 +19,20 @@ class EventController extends Controller
     public function index(Event $event)
     {
         $event = Event::latest()->paginate(5);
-        $event_latest = Event::limit(3)->latest()->get();
+        $event_latest = Event::limit(3)->inRandomOrder()->get();
+        $destination_type = DestinationType::all();
 
-        return view('event.events', compact('event', 'event_latest'));
+        return view('event.events', compact('event', 'event_latest', 'destination_type'));
     }
 
     public function search(Request $request){
-        $keyword = $request->search;
-        $event = Event::where('event_name', 'like', "%" . $keyword . "%")->paginate(5);
+        $keyword = $request->event_name;
 
-        return view('event.events', compact('event'));
+        $event = Event::where('event_name', 'like', "%" . $keyword . "%")->paginate(5);
+        $event_latest = Event::limit(3)->latest()->get();
+        $destination_type = DestinationType::all();
+        
+        return view('event.events', compact('event', 'event_latest', 'destination_type'));
     }
 
     /**
@@ -85,7 +90,8 @@ class EventController extends Controller
     public function show(Event $event)
     {
         $event_latest = Event::limit(3)->get();
-        return view('event.event-detail', compact('event', 'event_latest'));
+        $destination_type = DestinationType::all();
+        return view('event.event-detail', compact('event', 'event_latest', 'destination_type'));
     }
 
     /**

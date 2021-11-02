@@ -53,8 +53,16 @@
                                 <ul class="navigation clearfix">
                                     <li><a href="{{ route('index') }}">Beranda</a></li>
                                     <li><a href="{{ route('event.index') }}">Event</a></li>
-                                    <li><a href="contact.html">Destinasi</a></li>
-                                    <li><a href="contact.html">Video</a></li>
+                                    <li class="dropdown"><a href="#">Destinasi</a>
+                                        <ul>
+                                            @forelse ($destination_type as $type)
+											    <li><a href="{{ route('destination.type', $type->destination_type_id) }}">{{ $type->destination_type_nama }}</a></li>
+                                            @empty
+                                                <li><a href="#">Tipe destinasi kosong</a></li>
+                                            @endforelse
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{ route('videos') }}">Video</a></li>
                                     <li><a href="contact.html">Tentang</a></li>
                                 </ul>
                             </div>
@@ -107,7 +115,7 @@
             	<div class="row clearfix">
 
                     <!--big column-->
-                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="big-column col-lg-12 col-md-12 col-sm-12">
                         <div class="row clearfix">
 
                             <!--Footer Column-->
@@ -124,13 +132,13 @@
                             <div class="footer-column col-lg-5 col-md-6 col-sm-12">
                                 <div class="footer-widget links-widget">
                                 	<h2>Kontak Info</h2>
-                                  <div class="widget-content">
-                										<a href="tel:081227385598" class="contact-number">081227385598</a>
-                										<ul>
-                											<li>Karanganyar, Jawa Tengah</li>
-                											<li>Email :<a href="mailto:SINTAKAranganyar@gmail.com.com"> SINTAKAranganyar@gmail.com.com</a></li>
-                										</ul>
-                									</div>
+                                    <div class="widget-content">
+                                        <a href="tel:081227385598" class="contact-number">081227385598</a>
+                                        <ul>
+                                            <li>Karanganyar, Jawa Tengah</li>
+                                            <li>Email :<a href="mailto:SINTAKAranganyar@gmail.com.com"> SINTAKAranganyar@gmail.com.com</a></li>
+                                        </ul>
+                                    </div>
 								</div>
 							</div>
 
@@ -155,25 +163,15 @@
 	<div class="popup-inner">
 		<div class="overlay-layer"></div>
     	<div class="search-form">
-        	<form method="post" action="templateshub.net">
+        	<form method="post" action="{{ route('event.search') }}">
+                @csrf
             	<div class="form-group">
                 	<fieldset>
-                        <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
+                        <input type="search" class="form-control" name="event_name" value="" placeholder="Search Here" required >
                         <input type="submit" value="Search Now!" class="theme-btn">
                     </fieldset>
                 </div>
             </form>
-
-            <br>
-            <h3>Recent Search Keywords</h3>
-            <ul class="recent-searches">
-                <li><a href="#">Home Interiors</a></li>
-                <li><a href="#">Offices Interiors</a></li>
-                <li><a href="#">Showroom Interiors</a></li>
-                <li><a href="#">Building Interiors</a></li>
-                <li><a href="#">Shops Interiors</a></li>
-            </ul>
-
         </div>
 
     </div>
@@ -191,6 +189,7 @@
 <script src="{{ asset('storage/js/appear.js') }}"></script>
 <script src="{{ asset('storage/js/scrollbar.js') }}"></script>
 <script src="{{ asset('storage/js/script.js') }}"></script>
+<script src="{{ asset('storage/js/mixitup.js') }}"></script>
 </body>
 
 <!-- stella-orre/  30 Nov 2019 03:45:45 GMT -->

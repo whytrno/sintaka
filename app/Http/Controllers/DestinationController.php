@@ -2,31 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use App\Models\Event;
 use App\Models\DestinationType;
+use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class DestinationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $event = Event::limit(3)->latest()->get();
-        $destination_type = DestinationType::all();
-        return view('event.index', compact('event', 'destination_type'));
+    public function index(Request $request)
+    {   
+        $destination = Destination::all();
+        return view('event.destinations', compact('destination', 'request'));
     }
 
-    public function videos()
+    public function type(Destination $destination)
     {
+        
+        $keyword = $destination->destination_type_id;
+        
+        $destination_get = Destination::where('destination_type_id', $keyword)->limit(5)->get();
         $destination_type = DestinationType::all();
-        return view('event.videos', compact('destination_type'));
+        
+        return view('event.destinations', compact('destination_get', 'destination_type'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,21 +54,23 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Destination $destination)
     {
         //
+        $destination = Destination::all();
+        return view('event.destinations', compact('destination'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Destination $destination)
     {
         //
     }
@@ -74,10 +79,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Destination $destination)
     {
         //
     }
@@ -85,10 +90,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Destination $destination)
     {
         //
     }

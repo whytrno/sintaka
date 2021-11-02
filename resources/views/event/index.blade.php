@@ -82,7 +82,7 @@
 				<div class="service-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<a href="{{ route('event.show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></a>
+							<a href="{{ route('show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></a>
 						</div>
 						<div class="lower-content">
 							<h3><a href="residental-interior.html">{{ $data->event_name }}</a></h3>
