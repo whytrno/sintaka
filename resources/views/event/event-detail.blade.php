@@ -1,8 +1,20 @@
 @extends('layout.event')
-@section('title', 'SINTAKA')
+@section('title', 'SINTAKA | Acara')
 @section('content')
+<!--Page Title-->
+<section class="page-title" style="background-image:url(images/background/5.jpg)">
+    <div class="auto-container">
+        <h2>Detail Acara</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="{{ route('index') }}">Home</a></li>
+            <li>Detail acara</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+
     <div class="sidebar-page-container">
-    	<div class="auto-container" style="margin-top: 75px;">
+    	<div class="auto-container">
         	<div class="row clearfix">
 
                 <!--Content Side / Blog Classic -->

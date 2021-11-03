@@ -1,5 +1,5 @@
 @extends('layout.event')
-@section('title', 'INI TITLE')
+@section('title', 'SINTAKA | Video')
 @section('content')
 <section class="portfolio-page-section">
     <div class="auto-container" style="margin-top: 75px">
@@ -40,7 +40,74 @@
                         </figure>
                     </div>
                 </div>
-                
+                <div class="gallery-item all wardrobe kitchen col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="{{ asset('storage/assets/images/gallery/17.jpg') }}" alt="">
+                            <!--Overlay Box-->
+                            <div class="overlay-box">
+                                <div class="overlay-inner">
+                                    <div class="content">
+                                        <h3><a href="projects-fullwidth.html">Modular Kitchen</a></h3>
+                                        <a href="{{ asset('storage/assets/images/gallery/17.jpg') }}" data-fancybox="gallery-4" data-caption="" class="link"><span class="icon flaticon-magnifying-glass-1"></span></a>
+                                        <a href="projects-fullwidth.html" class="link"><span class="icon flaticon-unlink"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="gallery-item all wardrobe kitchen col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="{{ asset('storage/assets/images/gallery/17.jpg') }}" alt="">
+                            <!--Overlay Box-->
+                            <div class="overlay-box">
+                                <div class="overlay-inner">
+                                    <div class="content">
+                                        <h3><a href="projects-fullwidth.html">Modular Kitchen</a></h3>
+                                        <a href="{{ asset('storage/assets/images/gallery/17.jpg') }}" data-fancybox="gallery-4" data-caption="" class="link"><span class="icon flaticon-magnifying-glass-1"></span></a>
+                                        <a href="projects-fullwidth.html" class="link"><span class="icon flaticon-unlink"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="gallery-item all wardrobe kitchen col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="{{ asset('storage/assets/images/gallery/17.jpg') }}" alt="">
+                            <!--Overlay Box-->
+                            <div class="overlay-box">
+                                <div class="overlay-inner">
+                                    <div class="content">
+                                        <h3><a href="projects-fullwidth.html">Modular Kitchen</a></h3>
+                                        <a href="{{ asset('storage/assets/images/gallery/17.jpg') }}" data-fancybox="gallery-4" data-caption="" class="link"><span class="icon flaticon-magnifying-glass-1"></span></a>
+                                        <a href="projects-fullwidth.html" class="link"><span class="icon flaticon-unlink"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="gallery-item all wardrobe kitchen col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="{{ asset('storage/assets/images/gallery/17.jpg') }}" alt="">
+                            <!--Overlay Box-->
+                            <div class="overlay-box">
+                                <div class="overlay-inner">
+                                    <div class="content">
+                                        <h3><a href="projects-fullwidth.html">Modular Kitchen</a></h3>
+                                        <a href="{{ asset('storage/assets/images/gallery/17.jpg') }}" data-fancybox="gallery-4" data-caption="" class="link"><span class="icon flaticon-magnifying-glass-1"></span></a>
+                                        <a href="projects-fullwidth.html" class="link"><span class="icon flaticon-unlink"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
             </div>
             
         </div>

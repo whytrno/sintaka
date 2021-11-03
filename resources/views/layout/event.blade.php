@@ -190,6 +190,7 @@
 <script src="{{ asset('storage/js/scrollbar.js') }}"></script>
 <script src="{{ asset('storage/js/script.js') }}"></script>
 <script src="{{ asset('storage/js/mixitup.js') }}"></script>
+<script src="{{ asset('storage/js/jquery.bootstrap-touchspin.js') }}"></script>
 </body>
 
 <!-- stella-orre/  30 Nov 2019 03:45:45 GMT -->

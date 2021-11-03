@@ -64,29 +64,19 @@
 			<div class="title-box">
 				<h2>Info Terkini</h2>
 			</div>
-			<form method="POST" action="{{ route('event.store') }}" enctype="multipart/form-data">
-				@csrf
-				<input name="event_name" type="text" placeholder="Title..."> 
-				<input name="event_desc" type="text" placeholder="Body...">
-				<input name="event_date_start" type="date">
-				<input name="event_date_end" type="date">
-				<input name="event_place" type="text" placeholder="Body...">
-				<input type="file" name="event_image">
-				<button class="btn-blue">Submit</button>
-			</form>
 			<div class="row clearfix">
 
 				<!-- Service Block -->
 				
 				@forelse ($event as $data)
-				<div class="service-block col-lg-4 col-md-6 col-sm-12">
+				<div class="service-block col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 15px">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<a href="{{ route('show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></a>
+							<a href="{{ route('event.show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></a>
 						</div>
 						<div class="lower-content">
 							<h3><a href="residental-interior.html">{{ $data->event_name }}</a></h3>
-							<div class="text">{{ Str::limit($data->event_desc, 150, $end=" ...") }}</div>
+							<div class="text"><p>{!! Str::limit($data->event_desc, 250, $end=" ...") !!}</p></div>
 						</div>
 					</div>
 				</div>

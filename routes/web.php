@@ -21,3 +21,10 @@ Route::resource('event', EventController::class);
 
 Route::get('destination/type/{destination}', 'DestinationController@type')->name('destination.type');
 Route::resource('destination', DestinationController::class);
+
+Route::get('admin/events', 'AdminController@events')->name('admin.events');
+Route::get('admin/addEvent', 'AdminController@addEvent')->name('admin.addEvent');
+Route::post('admin/addEvent', 'AdminController@storeEvent')->name('admin.addEvent');
+
+Route::get('admin/destroyEvent/{event}', 'AdminController@destroyEvent')->name('admin.destroyEvent');
+Route::resource('admin', AdminController::class);

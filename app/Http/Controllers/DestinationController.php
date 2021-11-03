@@ -59,9 +59,8 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        //
-        $destination = Destination::all();
-        return view('event.destinations', compact('destination'));
+        $destination_type = DestinationType::all();
+        return view('event.destination-detail', compact('destination', 'destination_type'));
     }
 
     /**
