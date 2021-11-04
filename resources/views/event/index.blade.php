@@ -69,14 +69,14 @@
 				<!-- Service Block -->
 				
 				@forelse ($event as $data)
-				<div class="service-block col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 15px">
+				<div class="service-block col-lg-6 col-md-6 col-sm-12" style="margin-bottom: 15px">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
 							<a href="{{ route('event.show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></a>
 						</div>
 						<div class="lower-content">
 							<h3><a href="residental-interior.html">{{ $data->event_name }}</a></h3>
-							<div class="text"><p>{!! Str::limit($data->event_desc, 250, $end=" ...") !!}</p></div>
+							<div class="text"><p>{{strip_tags(Str::limit($data->event_desc, 250, $end=" ..."))}}</p></div>
 						</div>
 					</div>
 				</div>

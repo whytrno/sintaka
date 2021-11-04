@@ -1,5 +1,5 @@
 @extends('layout.event')
-@section('title', 'INI TITLE')
+@section('title', 'Detail Wisata')
 @section('content')
 <!--Page Title-->
 <section class="page-title" style="background-image:url(images/background/5.jpg)">
@@ -31,7 +31,7 @@
                                 {{-- <pre>{{ print_r($destination) }}</pre> --}}
                                 <h4>{{ $destination->destination_name }}</h4>
                                 <div class="text">{{ $destination->destination_profil }}</div>
-                                <div class="price">Harga tiket masuk:<br><label for="">{{ $destination->destination_ticket_price }}</label></div>
+                                <div class="price">Harga tiket masuk:<br><label for="">{!! $destination->destination_ticket_price !!}</label></div>
                             </div>
                         </div>
                     </div>
@@ -47,6 +47,7 @@
                         <ul class="tab-btns tab-buttons clearfix">
                             <li data-tab="#prod-spec" class="tab-btn">Fasilitas</li>
                             <li data-tab="#prod-reviews" class="tab-btn">Foto</li>
+                            <li data-tab="#prod-address" class="tab-btn">Alamat/Denah</li>
                         </ul>
                         
                         <!--Tabs Container-->
@@ -56,10 +57,9 @@
                             <!--Tab-->
                             <div class="tab active-tab" id="prod-spec">
                                 <div class="content">
-                                    <p>{{ $destination->destination_facility }}</p>
+                                    <p>{!! $destination->destination_facility !!}</p>
                                 </div>
                             </div>
-                            
                             <!--Tab-->
                             <div class="tab" id="prod-reviews">
                                 <!--Reviews Container-->
@@ -84,30 +84,24 @@
                                     
                                 </div> --}}
                                 <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                        <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
-                                    </div>
+                                    @forelse($image as $data)
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
+                                            <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/destinations/').$data->destination_image }}" alt="" /></a>
+                                        </div>
+                                    @empty
+                                        
+                                    @endforelse
                                 </div>
                                 
                             </div>
+                            
+
+                            <div class="tab" id="prod-address">
+                                <div class="content row">
+                                    <iframe src="{{ $destination->destination_address }}" width="1150px" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            
                             
                         </div>
                     </div>

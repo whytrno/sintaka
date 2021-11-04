@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="{{ asset('storage/admin/plugins/summernote/summernote-bs4.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('storage/admin/dist/css/adminlte.min.css') }}">
+  <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="{{ asset('storage/admin/plugins/ekko-lightbox/ekko-lightbox.css') }}">
   {{-- Data table --}}
   <link rel="stylesheet" href="{{ asset('storage/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('storage/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -36,7 +38,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{ route('admin.index') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -59,12 +61,6 @@
 
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ Storage::url('public/admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -85,16 +81,25 @@
           
           <li class="nav-header">Menu</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{ route('admin.events') }}" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
-                Event
+                Acara
                 {{-- <span class="badge badge-info right">2</span> --}}
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="{{ route('admin.destinations') }}" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Wisata
+                {{-- <span class="badge badge-info right">2</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.videos') }}" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Gallery
@@ -447,7 +452,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
               <li class="breadcrumb-item active">@yield('content-active')</li>
             </ol>
           </div><!-- /.col -->
@@ -509,6 +514,10 @@
 <script src="{{ asset('storage/admin/plugins/chart.js/Chart.min.js') }}"></script>
 <!-- Text editor -->
 <script src="{{ asset('storage/admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- Ekko Lightbox -->
+<script src="{{ asset('storage/admin/plugins/ekko-lightbox/ekko-lightbox.min.js') }}"></script>
+<!-- Filterizr-->
+<script src="{{ asset('storage/admin/plugins/filterizr/jquery.filterizr.min.js') }}"></script>
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('storage/admin/dist/js/demo.js') }}"></script>
@@ -532,6 +541,21 @@
       });
       $('#summernote').summernote({
         height: 150
+      });
+      $('#summernote1').summernote({
+        height: 150
+      });
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+          alwaysShowClose: true
+        });
+      });
+
+      $('.filter-container').filterizr({gutterPixels: 3});
+      $('.btn[data-filter]').on('click', function() {
+        $('.btn[data-filter]').removeClass('active');
+        $(this).addClass('active');
       });
     });
   </script>

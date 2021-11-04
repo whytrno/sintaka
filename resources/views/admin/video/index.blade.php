@@ -1,7 +1,7 @@
 @extends('layout.admin')
-@section('title', 'Admin | Acara')
-@section('judul-content', 'Acara')
-@section('content-active', 'Acara')
+@section('title', 'Admin | Video')
+@section('judul-content', 'Video')
+@section('content-active', 'Video')
 @section('content')
     <!-- Main content -->
     <section class="content">
@@ -11,7 +11,7 @@
   
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Data acara</h3>
+                  <h3 class="card-title">Data Video</h3>
                   <a href="{{ route('admin.addEvent') }}" class="btn btn-primary float-right">Tambah data</a>
                 </div>
                 <!-- /.card-header -->
@@ -19,27 +19,16 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                      <th>Nama acara</th>
-                      <th>Deskripsi</th>
-                      <th>Tempat</th>
-                      <th>Tanggal mulai - akhir</th>
-                      <th>Foto</th>
+                      <th>Link video</th>
                       <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @forelse ($event as $data)
+                    @forelse ($video as $data)
                       <tr>
-                        <td>{{ $data->event_name }}</td>
+                        <td>{{ $data->video_url }}</td>
                         <td>
-                          {!! Str::limit($data->event_desc, 150, $end=" ...") !!}
-                        </td>
-                        <td>{{ $data->event_place }}</td>
-                        <td>{{ $data->event_date_start}} - {{ $data->event_date_end }}</td>
-                        <td><img style="width: 150px; height: 150px" src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></td>
-                        <td>
-                          <a href="{{ route('admin.editEvent', $data->event_id) }}" class="btn btn-primary">Ubah</a>
-                          <form action="{{ route('admin.destroyEvent', $data->event_id) }}">
+                          <form action="{{ route('admin.destroyEvent', $data->video_id) }}">
                             @csrf
                             @method('Delete')
                             <button type="submit" class="btn btn-danger">Hapus</button>

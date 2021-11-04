@@ -32,7 +32,7 @@
                             </div>
                             <div class="lower-content">
                                 <h3><a href="{{ route('event.show', $data->event_id) }}">{{ $data->event_name }}</a></h3>
-                                <div class="text">{{ Str::limit($data->event_desc, 200, $end=" ...") }}</div>
+                                <div class="text">{{ strip_tags(Str::limit($data->event_desc, 200, $end=" ...")) }}</div>
                                 <div class="link-box"><a href="{{ route('event.show', $data->event_id) }}" class="theme-btn read-more">Read more</a></div>
                             </div>
                         </div>
@@ -72,8 +72,8 @@
 
                         @forelse ($event_latest as $latest)
                             <article class="post">
-                                <figure class="post-thumb"><a href="{{ route('event.show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$latest->event_image }}" alt=""></a></figure>
-                                <div class="text"><a href="{{ route('event.show', $data->event_id) }}">{{ Str::limit($latest->event_name, 50, $end=" ...") }}</a></div>
+                                <figure class="post-thumb"><a href="{{ route('event.show', $latest->event_id) }}"><img src="{{ Storage::url('public/events/').$latest->event_image }}" alt=""></a></figure>
+                                <div class="text"><a href="{{ route('event.show', $latest->event_id) }}">{{ Str::limit($latest->event_name, 50, $end=" ...") }}</a></div>
                                 <div class="post-info">{{ $latest->event_date_start }} - {{ $latest->event_date_end }}</div>
                             </article>
                         @empty

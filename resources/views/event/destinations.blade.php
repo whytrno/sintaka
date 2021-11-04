@@ -15,8 +15,7 @@
 
 <!-- Services Page Section -->
 <section class="services-page-section">
-    <div class="auto-container" style="margin-top: 75px">
-        
+    <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title light centered">
             <h2>We Provide Different Services In Interior Field</h2>

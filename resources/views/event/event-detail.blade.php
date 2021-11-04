@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
 									<div class="text">
-										<p>{{ $event->event_desc }}</h4>
+										<p>{!! $event->event_desc !!}</h4>
 									</div>
 								</div>
 							</div>

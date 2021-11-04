@@ -134,7 +134,7 @@ class EventController extends Controller
                 'event_date_end' => $request->event_date_end,
             ]);
         } else {
-            Storage::disk('local')->delete('public/events'.$data->event_image);
+            Storage::disk('local')->delete('public/events/'.$data->event_image);
 
             $image = $request->file('event_image');
             $image->storeAs('public/events', $image->hashName());
@@ -167,7 +167,7 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $data = Event::findOrFail($event->event_id);
-        Storage::disk('local')->delete('public/events'.$event->event_image);
+        Storage::disk('local')->delete('public/events/'.$event->event_image);
         $data->delete();
 
         if($data){
