@@ -34,11 +34,11 @@
                     <div class="news-block-three">
                         <div class="inner-box">
                             <div class="image-box">
-                                <figure class="image"><a href="{{ route('event.show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt=""></a></figure>
+                                <figure class="image"><a href="{{ route('event.shows', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt=""></a></figure>
                                 <span class="date">{{ $data->event_date_start }} - {{ $data->event_date_end }}</span>
                             </div>
                             <div class="lower-content">
-                                <h3><a href="{{ route('event.show', $data->event_id) }}">{{ $data->event_name }}</a></h3>
+                                <h3><a href="{{ route('event.shows', $data->event_id) }}">{{ $data->event_name }}</a></h3>
                                 <div class="text">{{ strip_tags(Str::limit($data->event_desc, 200, $end=" ...")) }}</div>
                                 <div class="link-box"><a href="{{ route('event.show', $data->event_id) }}" class="theme-btn read-more">Read more</a></div>
                             </div>

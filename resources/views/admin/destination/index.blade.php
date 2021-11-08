@@ -36,6 +36,7 @@
                       <th>Fasilitas</th>
                       <th>Harga tiket</th>
                       <th>Alamat</th>
+                      <th>Thumbnail</th>
                       <th>Gambar</th>
                       <th>Aksi</th>
                     </tr>
@@ -51,6 +52,7 @@
                         <td>{!! Str::limit($data->destination_facility, 150) !!}</td>
                         <td>{!! Str::limit($data->destination_ticket_price, 100) !!}</td>
                         <td>{{ Str::limit($data->destination_address, 100) }}</td>
+                        <td><img style="width: 150px; height: 150px" src="{{ Storage::url('public/destinations/').$data->destination_image }}" alt="" /></td>
                         <td><a href="{{ route('admin.imageDestination', $data->destination_id) }}" class="btn btn-primary">Lihat Gambar</a></td>
                         <td>
                           <a href="{{ route('admin.editDestination', $data->destination_id) }}" class="btn btn-primary">Ubah</a>

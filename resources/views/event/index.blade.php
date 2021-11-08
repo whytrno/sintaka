@@ -117,6 +117,7 @@
 
 			<div class="testimonial-carousel owl-carousel owl-theme">
 
+				@forelse($testimoni as $data)
 				<!-- Testimonial Block -->
 				<div class="testimonial-block">
 					<div class="inner-box">
@@ -126,60 +127,14 @@
 									<img src="{{ asset('storage/assets/images/resource/author-1.jpg') }}" alt="" />
 								</div>
 							</div>
-							<h3>Michale John</h3>
-							<div class="title">I got luxuary inteior from Stella Orr'e</div>
-							<div class="text">Osed quia consequuntur magni dolores eos qui rati one voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci sed quia non numqua.</div>
+							<h3>{{ $data->name }}</h3>
+							<div class="text">{{ $data->content }}</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Testimonial Block -->
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="content">
-							<div class="image-outer">
-								<div class="image">
-									<img src="{{ asset('storage/assets/images/resource/author-2.jpg') }}" alt="" />
-								</div>
-							</div>
-							<h3>Michale John</h3>
-							<div class="title">I got luxuary inteior from Stella Orr'e</div>
-							<div class="text">Osed quia consequuntur magni dolores eos qui rati one voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci sed quia non numqua.</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Testimonial Block -->
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="content">
-							<div class="image-outer">
-								<div class="image">
-									<img src="{{ asset('storage/assets/images/resource/author-2.jpg') }}" alt="" />
-								</div>
-							</div>
-							<h3>Michale John</h3>
-							<div class="title">I got luxuary inteior from Stella Orr'e</div>
-							<div class="text">Osed quia consequuntur magni dolores eos qui rati one voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci sed quia non numqua.</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Testimonial Block -->
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="content">
-							<div class="image-outer">
-								<div class="image">
-									<img src="{{ asset('storage/assets/images/resource/author-2.jpg') }}" alt="" />
-								</div>
-							</div>
-							<h3>Michale John</h3>
-							<div class="title">I got luxuary inteior from Stella Orr'e</div>
-							<div class="text">Osed quia consequuntur magni dolores eos qui rati one voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci sed quia non numqua.</div>
-						</div>
-					</div>
-				</div>
+				@empty
+					<h1>Data kosong!</h1>
+				@endforelse
 
 			</div>
 		</div>

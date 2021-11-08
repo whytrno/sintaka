@@ -9,13 +9,6 @@
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
-          <pre>
-            @forelse ($destination_get as $get)
-              {{ $get->destination_type_nama }}
-            @empty
-              
-            @endforelse
-          </pre>
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Ubah data wisata</h3>
@@ -77,6 +70,18 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">Alamat</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $destination->destination_address }}" name="destination_address">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="exampleInputFile" name="destination_image">
+                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                    </div>
+                  </div>
                 </div>
 
               <div class="card-footer">

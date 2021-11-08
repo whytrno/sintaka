@@ -65,6 +65,18 @@
                   <label for="exampleInputEmail1">Alamat</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="destination_address">
                 </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="exampleInputFile" name="destination_image">
+                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                    </div>
+                  </div>
+                </div>
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>

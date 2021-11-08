@@ -66,7 +66,7 @@
           <img src="{{ Storage::url('public/settings/logo.jpg') }}" class="elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ $setting_get->name }}</a>
+          <a href="#" class="d-block">{{ Auth::user()->email }}</a>
         </div>
       </div>
 
@@ -111,6 +111,18 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="dropdown-item nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                <i class="nav-icon far fa-image"></i>{{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          </li>
+          
           
         </ul>
       </nav>

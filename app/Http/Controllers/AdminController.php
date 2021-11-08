@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
@@ -11,14 +12,13 @@ use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Testimoni;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth:user');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -88,19 +88,24 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with(['success' => 'Logo berhasil di ubah']);
     }
 
-    public function prosesLogin(Request $request)
+    public function actionlogin(Request $request)
     {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-   
-        $credentials = $request->only('username', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
+        $data = [
+            'username' => $request->input('username'),
+            'password' => $request->input('password'),
+        ];
+
+        if (Auth::Attempt($data)) {
+            return redirect('home');
+        }else{
+            return redirect()->route('admin.index')->with(['success' => 'Logo berhasil di ubah']);
         }
-        return redirect("login")->withSuccess('Login details are not valid');
+    }
+
+    public function actionlogout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
     
 }

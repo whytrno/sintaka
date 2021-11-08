@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {   
         $setting_get = Setting::where('setting_id', 1)->first();

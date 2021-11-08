@@ -12,37 +12,15 @@ use App\Models\Setting;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Event $event)
+    public function __construct()
     {
-        $event = Event::latest()->paginate(5);
-        $event_latest = Event::limit(3)->inRandomOrder()->get();
-        $destination_type = DestinationType::all();
-        $setting_get = Setting::where('setting_id', 1)->first();
-
-        return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
+        $this->middleware('auth');
     }
-
     public function admin()
     {
         $setting_get = Setting::where('setting_id', 1)->first();
         $event = Event::all();
         return view('admin.event.index', compact('event', 'setting_get'));
-    }
-
-    public function search(Request $request){
-        $keyword = $request->event_name;
-
-        $event = Event::where('event_name', 'like', "%" . $keyword . "%")->paginate(5);
-        $event_latest = Event::limit(3)->latest()->get();
-        $destination_type = DestinationType::all();
-        $setting_get = Setting::where('setting_id', 1)->first();
-        
-        return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
     }
 
     /**
@@ -90,21 +68,6 @@ class EventController extends Controller
         } else{
             return redirect()->route('admin.events')->with(['error' => 'Data gagal disimpan']);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Event $event)
-    {
-        $event_latest = Event::limit(3)->get();
-        $destination_type = DestinationType::all();
-        $setting_get = Setting::where('setting_id', 1)->first();
-        
-        return view('event.event-detail', compact('event', 'event_latest', 'destination_type', 'setting_get'));
     }
 
     /**

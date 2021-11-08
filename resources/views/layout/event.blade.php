@@ -52,7 +52,7 @@
                             <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
                                     <li><a href="{{ route('index') }}">Beranda</a></li>
-                                    <li><a href="{{ route('event.index') }}">Event</a></li>
+                                    <li><a href="{{ route('events') }}">Event</a></li>
                                     <li class="dropdown"><a href="#">Destinasi</a>
                                         <ul>
                                             @forelse ($destination_type as $type)
@@ -122,7 +122,7 @@
                             <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                 <div class="footer-widget logo-widget">
 									<div class="logo">
-                                    	<a href="{{ route('index') }}"><img src="{{ asset('storage/assets/images/footer-logo.png') }}" alt="" /></a>
+                                    	<a href="{{ route('index') }}"><img style="max-width: 250px; max-height: 100px" src="{{ Storage::url('public/settings/logo.jpg') }}" alt="" /></a>
                                     </div>
                                     <div class="text">@yield('description')</div>
 								</div>

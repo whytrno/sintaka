@@ -18,6 +18,7 @@ class Destination extends Model
         'destination_profil',
         'destination_facility',
         'destination_ticket_price',
-        'destination_address'
+        'destination_address',
+        'destination_image'
     ];
 }
