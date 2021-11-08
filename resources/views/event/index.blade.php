@@ -1,6 +1,13 @@
 
 @extends('layout.event')
 @section('title', 'SINTAKA')
+
+@section('description', $setting_get->description)
+@section('no_hp', $setting_get->no_hp)
+@section('address', $setting_get->address)
+@section('address_url', $setting_get->address_url)
+@section('email', $setting_get->email)
+
 @section('content')
     <!-- Main Slider -->
 	<section class="main-slider">
@@ -9,48 +16,20 @@
 			<!-- Banner Carousel -->
 			<div class="banner-carousel owl-theme owl-carousel">
 
-				<!-- Slide -->
-				<div class="slide">
-                	<div class="image-layer" style="background-image:url({{ asset('storage/assets/images/main-slider/1.jpg') }})"></div>
-					<div class="auto-container">
-						<div class="content">
-							<h2>Selamat Datang <br> SINTAKA</h2>
-							<div class="text">SINTAKA merupakan sistem indeks berbasis website yang berfungsi untuk memberikan informasi mengenai pariwisata di Kabupaten Karanganyar</div>
-							<div class="btns-box">
-								<a href="#" class="theme-btn btn-style-one"><span class="txt">Know more</span></a>
+				@forelse($slider as $data)
+					<!-- Slide -->
+					<div class="slide">
+						<div class="image-layer" style="background-image:url({{ asset('storage/assets/images/main-slider/2.jpg') }})"></div>
+						<div class="auto-container">
+							<div class="content">
+								<h2>{{ $data->slider_title }}</h2>
+								<div class="text">{{ $data->slider_desc }}</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="slide">
-                	<div class="image-layer" style="background-image:url({{ asset('storage/assets/images/main-slider/2.jpg') }})"></div>
-					<div class="auto-container">
-						<div class="content">
-							<h2>Designs Benefitting <br> Your Persona</h2>
-							<div class="text">Since 1989, We inspired fragments of your life stories with the finest kitchens, wardrobes, bedroom sets and living & dining.</div>
-							<div class="btns-box">
-								<a href="#" class="theme-btn btn-style-one"><span class="txt">Know more</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="slide">
-                	<div class="image-layer" style="background-image:url({{ asset('storage/assets/images/main-slider/3.jpg') }})"></div>
-					<div class="auto-container">
-						<div class="content">
-							<h2>Solution for <br> Modern Kitchen</h2>
-							<div class="text">Since 1989, We inspired fragments of your life stories with the finest kitchens, wardrobes, bedroom sets and living & dining.</div>
-							<div class="btns-box">
-								<a href="#" class="theme-btn btn-style-one"><span class="txt">Know more</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				@empty
+					
+				@endforelse
 			</div>
 
 		</div>

@@ -6,13 +6,25 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+          @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>    
+              <strong>{{ $message }}</strong>
+            </div>
+          @endif
+          @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>    
+              <strong>{{ $message }}</strong>
+            </div>
+          @endif
           <div class="row">
             <div class="col-12">
   
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Data Video</h3>
-                  <a href="{{ route('admin.addEvent') }}" class="btn btn-primary float-right">Tambah data</a>
+                  <a href="{{ route('admin.addVideo') }}" class="btn btn-primary float-right">Tambah data</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -28,7 +40,7 @@
                       <tr>
                         <td>{{ $data->video_url }}</td>
                         <td>
-                          <form action="{{ route('admin.destroyEvent', $data->video_id) }}">
+                          <form action="{{ route('admin.destroyVideo', $data->video_id) }}">
                             @csrf
                             @method('Delete')
                             <button type="submit" class="btn btn-danger">Hapus</button>

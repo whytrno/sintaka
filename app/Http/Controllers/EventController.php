@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 // UPDATE IMAGE
 use Illuminate\Support\Facades\Storage;
 use App\Models\DestinationType;
+use App\Models\Setting;
 
 class EventController extends Controller
 {
@@ -21,8 +22,16 @@ class EventController extends Controller
         $event = Event::latest()->paginate(5);
         $event_latest = Event::limit(3)->inRandomOrder()->get();
         $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
 
-        return view('event.events', compact('event', 'event_latest', 'destination_type'));
+        return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
+    }
+
+    public function admin()
+    {
+        $setting_get = Setting::where('setting_id', 1)->first();
+        $event = Event::all();
+        return view('admin.event.index', compact('event', 'setting_get'));
     }
 
     public function search(Request $request){
@@ -31,8 +40,9 @@ class EventController extends Controller
         $event = Event::where('event_name', 'like', "%" . $keyword . "%")->paginate(5);
         $event_latest = Event::limit(3)->latest()->get();
         $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
         
-        return view('event.events', compact('event', 'event_latest', 'destination_type'));
+        return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
     }
 
     /**
@@ -42,7 +52,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $setting_get = Setting::where('setting_id', 1)->first();
+        return view('admin.event.add', compact('setting_get'));
     }
 
     /**
@@ -75,9 +86,9 @@ class EventController extends Controller
         ]);
 
         if($input){
-            return redirect()->route('event.index')->with(['success' => 'Data berhasil disimpan']);
+            return redirect()->route('admin.events')->with(['success' => 'Data berhasil disimpan']);
         } else{
-            return redirect()->route('event.index')->with(['error' => 'Data gagal disimpan']);
+            return redirect()->route('admin.events')->with(['error' => 'Data gagal disimpan']);
         }
     }
 
@@ -91,7 +102,9 @@ class EventController extends Controller
     {
         $event_latest = Event::limit(3)->get();
         $destination_type = DestinationType::all();
-        return view('event.event-detail', compact('event', 'event_latest', 'destination_type'));
+        $setting_get = Setting::where('setting_id', 1)->first();
+        
+        return view('event.event-detail', compact('event', 'event_latest', 'destination_type', 'setting_get'));
     }
 
     /**
@@ -102,7 +115,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('event.edit', compact('event'));
+        $setting_get = Setting::where('setting_id', 1)->first();
+        return view('admin.event.edit', compact('event', 'setting_get'));
     }
 
     /**
@@ -151,10 +165,10 @@ class EventController extends Controller
 
         if($data){
             //redirect dengan pesan sukses
-            return redirect()->route('event.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('admin.events')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
             //redirect dengan pesan error
-            return redirect()->route('event.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.events')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
@@ -167,15 +181,15 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $data = Event::findOrFail($event->event_id);
-        Storage::disk('local')->delete('public/events/'.$event->event_image);
+        Storage::disk('local')->delete('public/events'.$event->event_image);
         $data->delete();
 
         if($data){
             //redirect dengan pesan sukses
-            return redirect()->route('event.index')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('admin.events')->with(['success' => 'Data Berhasil Dihapus!']);
          }else{
            //redirect dengan pesan error
-           return redirect()->route('event.index')->with(['error' => 'Data Gagal Dihapus!']);
+           return redirect()->route('admin.events')->with(['error' => 'Data Gagal Dihapus!']);
          }
     }
 }

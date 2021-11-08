@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Event;
 use App\Models\DestinationType;
+use App\Models\Setting;
+use App\Models\Slider;
+use App\Models\Video;
 
 class HomeController extends Controller
 {
@@ -18,78 +21,17 @@ class HomeController extends Controller
     {
         $event = Event::limit(3)->latest()->get();
         $destination_type = DestinationType::all();
-        return view('event.index', compact('event', 'destination_type'));
+        $setting_get = Setting::where('setting_id', 1)->first();
+        $slider = Slider::all();
+        
+        return view('event.index', compact('event', 'destination_type', 'setting_get', 'slider'));
     }
 
     public function videos()
     {
         $destination_type = DestinationType::all();
-        return view('event.videos', compact('destination_type'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $video = Video::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
+        return view('event.videos', compact('destination_type', 'video', 'setting_get'));
     }
 }

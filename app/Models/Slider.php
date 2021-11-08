@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Slider extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'video_id';
+
+    protected $primaryKey = 'slider_id';
 
     protected $fillable = [
-        'video_url',
+        'slider_title',
+        'slider_desc',
+        'slider_img',
     ];
 }

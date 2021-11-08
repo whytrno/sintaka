@@ -14,34 +14,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('videos', 'HomeController@videos')->name('videos');
+Route::post('event/search', 'EventController@search')->name('event.search');
 Route::resource('/', HomeController::class);
 
-Route::post('event/search', 'EventController@search')->name('event.search');
+Route::get('admin/events', 'EventController@admin')->name('admin.events');
+Route::get('admin/addEvent', 'EventController@create')->name('admin.addEvent');
+Route::get('admin/editEvent/{event}', 'EventController@edit')->name('admin.editEvent');
+Route::get('admin/destroyEvent/{event}', 'EventController@destroy')->name('admin.destroyEvent');
 Route::resource('event', EventController::class);
 
 Route::get('destination/type/{destinationtype}', 'DestinationController@type')->name('destination.type');
+Route::get('admin/destinations', 'DestinationController@admin')->name('admin.destinations');
+Route::get('admin/addDestination', 'DestinationController@create')->name('admin.addDestination');
+Route::get('admin/editDestination/{destination}', 'DestinationController@edit')->name('admin.editDestination');
+Route::get('admin/destroyDestination/{destination}', 'DestinationController@destroy')->name('admin.destroyDestination');
 Route::resource('destination', DestinationController::class);
 
-Route::get('admin/events', 'AdminController@events')->name('admin.events');
-Route::get('admin/addEvent', 'AdminController@addEvent')->name('admin.addEvent');
-Route::post('admin/addEvent', 'AdminController@storeEvent')->name('admin.addEvent');
-Route::get('admin/editEvent/{event}', 'AdminController@editEvent')->name('admin.editEvent');
-Route::post('admin/editEventProccess/{event}', 'AdminController@editEventProccess')->name('admin.editEventProccess');
-Route::get('admin/destroyEvent/{event}', 'AdminController@destroyEvent')->name('admin.destroyEvent');
-
-Route::get('admin/destinations', 'AdminController@destinations')->name('admin.destinations');
-Route::get('admin/destinationAyam/{destination}', 'AdminController@destinationAyam')->name('admin.destinationAyam');
-Route::get('admin/addDestination', 'AdminController@addDestination')->name('admin.addDestination');
-Route::post('admin/addDestination', 'AdminController@storeDestination')->name('admin.addDestination');
-Route::get('admin/editDestination/{destination}', 'AdminController@editDestination')->name('admin.editDestination');
-Route::post('admin/editDestinationProccess/{destination}', 'AdminController@editDestinationProccess')->name('admin.editDestinationProccess');
-Route::get('admin/destroyDestination/{destination}', 'AdminController@destroyDestination')->name('admin.destroyDestination');
-
 Route::get('admin/videos', 'VideoController@index')->name('admin.videos');
+Route::get('admin/addVideo', 'VideoController@create')->name('admin.addVideo');
+Route::post('admin/storeVideo', 'VideoController@store')->name('admin.storeVideo');
+Route::get('admin/destroyVideo/{video}', 'VideoController@destroy')->name('admin.destroyVideo');
 
-Route::get('admin/imageDestination/{destination}', 'AdminController@imageDestination')->name('admin.imageDestination');
-Route::get('admin/addDestinationImage/{destination}', 'AdminController@addDestinationImage')->name('admin.addDestinationImage');
-Route::post('admin/storeDestinationImage', 'AdminController@storeDestinationImage')->name('admin.storeDestinationImage');
-Route::get('admin/destroyDestinationImage/{destinationimage}', 'AdminController@destroyDestinationImage')->name('admin.destroyDestinationImage');
+Route::get('admin/imageDestination/{destination}', 'DestinationController@imageDestination')->name('admin.imageDestination');
+Route::get('admin/addDestinationImage/{destination}', 'DestinationController@addDestinationImage')->name('admin.addDestinationImage');
+Route::post('admin/storeDestinationImage', 'DestinationController@storeDestinationImage')->name('admin.storeDestinationImage');
+Route::get('admin/destroyDestinationImage/{destinationimage}', 'DestinationController@destroyDestinationImage')->name('admin.destroyDestinationImage');
 
+Route::get('admin/testimonis', 'TestimoniController@index')->name('admin.testimonis');
+Route::get('admin/addTestimoni', 'TestimoniController@create')->name('admin.addTestimoni');
+Route::post('admin/storeTestimoni', 'TestimoniController@store')->name('admin.storeTestimoni');
+Route::get('admin/editTestimoni/{testimoni}', 'TestimoniController@edit')->name('admin.editTestimoni');
+Route::post('admin/updateTestimoni/{testimoni}', 'TestimoniController@update')->name('admin.updateTestimoni');
+Route::get('admin/destroyTestimoni/{testimoni}', 'TestimoniController@destroy')->name('admin.destroyTestimoni');
+
+Route::get('admin/login', 'AdminController@login')->name('admin.login');
+Route::post('admin/login', 'AdminController@login')->name('admin.login');
+
+Route::get('admin/editSlider/{slider}', 'SliderController@editSlider')->name('admin.editSlider');
+Route::post('admin/updateSlider/{slider}', 'SliderController@updateSlider')->name('admin.updateSlider');
+Route::get('admin/destroySlider/{slider}', 'SliderController@destroySlider')->name('admin.destroySlider');
+Route::get('admin/addSlider', 'SliderController@addSlider')->name('admin.addSlider');
+Route::post('admin/storeSlider', 'SliderController@storeSlider')->name('admin.storeSlider');
+
+Route::post('admin/changeLogo', 'AdminController@changeLogo')->name('admin.changeLogo');
+Route::post('admin/updateSetting/{setting}', 'AdminController@updateSetting')->name('admin.updateSetting');
 Route::resource('admin', AdminController::class);

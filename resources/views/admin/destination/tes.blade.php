@@ -1,1 +1,0 @@
-<pre>{{ print_r($destination_image->destination_image) }}</pre>

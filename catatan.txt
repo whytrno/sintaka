@@ -1,0 +1,16 @@
+Admin :
+1. Update logo (Done)
+2. Update contact (Done)
+3. Login
+
+Landing page :
+1. Some banner is missing (Done)
+2. Tik Tok page (Done)
+
+Logo (Done)
+Content dalam slider (Done)
+Manfaat sintaka
+Testimoni (Done)
+Update web info (Done)
+Beberapa masih menggunakan bahasa inggris
+belum ada notif berhasil/gagal setelah crud (Done)

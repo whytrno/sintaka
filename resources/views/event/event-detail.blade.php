@@ -1,8 +1,15 @@
 @extends('layout.event')
 @section('title', 'SINTAKA | Acara')
+
+@section('description', $setting_get->description)
+@section('no_hp', $setting_get->no_hp)
+@section('address', $setting_get->address)
+@section('address_url', $setting_get->address_url)
+@section('email', $setting_get->email)
+
 @section('content')
 <!--Page Title-->
-<section class="page-title" style="background-image:url(images/background/5.jpg)">
+<section class="page-title" style="background-image:url({{ Storage::url('public/assets/images/main-slider/sangiran.jpg') }})">
     <div class="auto-container">
         <h2>Detail Acara</h2>
         <ul class="page-breadcrumb">

@@ -15,9 +15,9 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('admin.editEventProccess', $event->event_id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('event.update', $event->event_id) }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('POST')
+                @method('PUT')
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama acara</label>

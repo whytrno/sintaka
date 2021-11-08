@@ -35,7 +35,7 @@
                 <div class="auto-container clearfix">
                     <!--Info-->
                     <div class="logo-outer">
-                        <div class="logo"><a href="{{ route('index') }}"><img src="{{ asset('storage/assets/images/logo.png') }}" alt="" title=""></a></div>
+                        <div class="logo"><a href="{{ route('index') }}"><img height="70" width="180" src="{{ Storage::url('public/settings/logo.jpg') }}" alt="" title=""></a></div>
                     </div>
 
                     <!--Nav Box-->
@@ -86,7 +86,7 @@
             <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
 
             <nav class="menu-box">
-                <div class="nav-logo"><a href="{{ route('index') }}"><img src="{{ asset('storage/assets/images/logo.png') }}" alt="" title=""></a></div>
+                <div class="nav-logo"><a href="{{ route('index') }}"><img height="70" width="180" src="{{ Storage::url('public/settings/logo.jpg') }}" alt="" title=""></a></div>
                 <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
 				<!--Social Links-->
 				<div class="social-links">
@@ -124,7 +124,7 @@
 									<div class="logo">
                                     	<a href="{{ route('index') }}"><img src="{{ asset('storage/assets/images/footer-logo.png') }}" alt="" /></a>
                                     </div>
-                                    <div class="text">SINTAKA adalah sistem indeks berbasis website yang berfungsi untuk memberikan informasi mengenai pariwisata di Kabupaten Karanganyar</div>
+                                    <div class="text">@yield('description')</div>
 								</div>
 							</div>
 
@@ -133,10 +133,10 @@
                                 <div class="footer-widget links-widget">
                                 	<h2>Kontak Info</h2>
                                     <div class="widget-content">
-                                        <a href="tel:081227385598" class="contact-number">081227385598</a>
+                                        Telp   : <a href="tel:@yield('no_hp')" class="contact-number">@yield('no_hp')</a>
                                         <ul>
-                                            <li>Karanganyar, Jawa Tengah</li>
-                                            <li>Email :<a href="mailto:SINTAKAranganyar@gmail.com.com"> SINTAKAranganyar@gmail.com.com</a></li>
+                                            <li>Alamat: <a href="@yield('address_url')"> @yield('address')</a></li>
+                                            <li>Email  :<a href="mailto:@yield('email')"> @yield('email')</a></li>
                                         </ul>
                                     </div>
 								</div>

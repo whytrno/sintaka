@@ -5,12 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Setting extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'video_id';
+    protected $primaryKey = 'setting_id';
 
     protected $fillable = [
-        'video_url',
+        'name',
+        'description',
+        'logo',
+        'no_hp',
+        'email',
+        'address',
     ];
 }

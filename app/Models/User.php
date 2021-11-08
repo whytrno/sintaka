@@ -19,15 +19,16 @@ class User extends Authenticatable
      * @var string[]
      */
 
-    protected $table = 'tb_user';
     protected $primaryKey = 'id_user';
-    
-    protected $fillable = [
-        'nama_user',
-        'email',
-        'password',
-        'level',
+
+    protected $guarded = ['id_user'];
+    protected $hidden = [
+     'password'
     ];
+    public function getAuthPassword()
+    {
+     return $this->password;
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -6,6 +6,18 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+          @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>    
+              <strong>{{ $message }}</strong>
+            </div>
+          @endif
+          @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>    
+              <strong>{{ $message }}</strong>
+            </div>
+          @endif
           <div class="row">
             <div class="col-12">
               <div class="card">
@@ -36,9 +48,9 @@
                         <td>
                           {{ Str::limit($data->destination_profil, 150, $end=" ...") }}
                         </td>
-                        <td>{!! Str::limit($data->destination_facility) !!}</td>
-                        <td>{!! Str::limit($data->destination_ticket_price) !!}</td>
-                        <td>{{ $data->destination_address }}</td>
+                        <td>{!! Str::limit($data->destination_facility, 150) !!}</td>
+                        <td>{!! Str::limit($data->destination_ticket_price, 100) !!}</td>
+                        <td>{{ Str::limit($data->destination_address, 100) }}</td>
                         <td><a href="{{ route('admin.imageDestination', $data->destination_id) }}" class="btn btn-primary">Lihat Gambar</a></td>
                         <td>
                           <a href="{{ route('admin.editDestination', $data->destination_id) }}" class="btn btn-primary">Ubah</a>

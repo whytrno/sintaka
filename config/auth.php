@@ -37,6 +37,7 @@ return [
 
     'guards' => [
         'web' => [
+            'redirectTo' => 'admin.index',
             'driver' => 'session',
             'provider' => 'users',
         ],
