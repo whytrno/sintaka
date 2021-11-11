@@ -14,5 +14,6 @@ class Info extends Model
     protected $fillable = [
         'info_title',
         'info_desc',
+        'info_image',
     ];
 }

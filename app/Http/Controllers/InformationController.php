@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Info;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class InformationController extends Controller
 {
@@ -46,11 +47,17 @@ class InformationController extends Controller
         $request->validate([
             'info_title' => 'required',
             'info_desc' => 'required',
+            'info_image' => 'required|image|mimes:png,jpg,jpeg'
         ]);
 
+        $image = $request->file('info_image');
+        $image->storeAs('public/infos', $image->hashName());
+
+        
         $input = Info::create([
             'info_title' => $request->info_title,
             'info_desc' => $request->info_desc,
+            'info_image' => $image->hashName()
         ]);
 
         if($input){
@@ -95,6 +102,7 @@ class InformationController extends Controller
         $request->validate([
             'info_title' => 'required',
             'info_desc' => 'required',
+            'info_image' => 'required|image|mimes:png,jpg,jpeg'
         ]);
 
         $data = Info::findOrFail($info->info_id);
@@ -103,6 +111,24 @@ class InformationController extends Controller
             'info_title' => $request->info_title,
             'info_desc' => $request->info_desc,
         ]);
+
+        if($request->file('info_image') == ""){
+            $data->update([
+                'info_title' => $request->info_title,
+                'info_desc' => $request->info_desc,
+            ]);
+        } else {
+            Storage::disk('local')->delete('public/infos/'.$data->info_image);
+
+            $image = $request->file('info_image');
+            $image->storeAs('public/infos', $image->hashName());
+
+            $data->update([
+                'info_title' => $request->info_title,
+                'info_desc' => $request->info_desc,
+                'info_image' => $image->hashName()
+            ]);
+        }
 
         if($data){
             //redirect dengan pesan sukses
@@ -122,6 +148,7 @@ class InformationController extends Controller
     public function destroy(Info $info)
     {
         $data = Info::findOrFail($info->info_id);
+        Storage::disk('local')->delete('public/infos/'.$info->info_image);
         $data->delete();
 
         // if($data){

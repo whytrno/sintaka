@@ -113,7 +113,7 @@
 			</div>
 
 			<!--Image Column-->
-        	<div class="image-column" style="background-image: url({{ asset('storage/assets/images/sintaka-logo-kecil.jpg') }})">
+        	<div class="image-column" style="background-image: url({{ asset('storage/assets/images/panjang.png') }})">
 				<div class="inner-column">
 					<div class="image">
 						<img src="{{ asset('storage/assets/images/logo-sintakaa.jpg') }}" alt="">

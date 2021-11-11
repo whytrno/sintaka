@@ -33,6 +33,7 @@
                     <tr>
                       <th>Nama</th>
                       <th>Deskripsi</th>
+                      <th>Gambar</th>
                       <th>Aksi</th>
                     </tr>
                     </thead>
@@ -41,6 +42,7 @@
                       <tr>
                         <td>{{ $data->info_title }}</td>
                         <td>{{ $data->info_desc }}</td>
+                        <td><img style="width: 150px; height: 150px" src="{{ asset('storage/infos/'.$data->info_image) }}" alt="" /></td>
                         <td>
                           <a href="{{ route('admin.editInfo', $data->info_id) }}" class="btn btn-primary">Ubah</a>
                           <form action="{{ route('admin.destroyInfo', $data->info_id) }}">

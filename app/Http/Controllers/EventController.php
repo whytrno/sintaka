@@ -157,7 +157,7 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $data = Event::findOrFail($event->event_id);
-        Storage::disk('local')->delete('public/events'.$event->event_image);
+        Storage::disk('local')->delete('public/events/'.$event->event_image);
         $data->delete();
 
         if($data){
