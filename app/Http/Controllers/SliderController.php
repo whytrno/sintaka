@@ -41,9 +41,9 @@ class SliderController extends Controller
         ]);
 
         if($input){
-            return redirect()->route('admin.setting')->with(['success' => 'Data berhasil disimpan']);
+            return redirect()->route('admin.index')->with(['success' => 'Data berhasil disimpan']);
         } else{
-            return redirect()->route('admin.setting')->with(['error' => 'Data gagal disimpan']);
+            return redirect()->route('admin.index')->with(['error' => 'Data gagal disimpan']);
         }
     }
     public function updateSlider(Request $request, Slider $slider)
@@ -77,10 +77,10 @@ class SliderController extends Controller
 
         if($data){
             //redirect dengan pesan sukses
-            return redirect()->route('admin.setting')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('admin.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
             //redirect dengan pesan error
-            return redirect()->route('admin.setting')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
     public function destroySlider(Slider $slider)
@@ -91,10 +91,10 @@ class SliderController extends Controller
 
         if($data){
             //redirect dengan pesan sukses
-            return redirect()->route('admin.setting')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('admin.index')->with(['success' => 'Data Berhasil Dihapus!']);
          }else{
            //redirect dengan pesan error
-           return redirect()->route('admin.setting')->with(['error' => 'Data Gagal Dihapus!']);
+           return redirect()->route('admin.index')->with(['error' => 'Data Gagal Dihapus!']);
          }
     }
 }

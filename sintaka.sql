@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Nov 2021 pada 07.27
+-- Waktu pembuatan: 10 Nov 2021 pada 16.52
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.3.27
 
@@ -20,6 +20,81 @@ SET time_zone = "+00:00";
 --
 -- Database: `sintaka`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `title`, `sub_title`, `desc`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'c', 'x', 'w', 'about-logo.jpeg', NULL, '2021-11-10 01:37:19');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `art`
+--
+
+CREATE TABLE `art` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `art`
+--
+
+INSERT INTO `art` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'kesenian', 'k34O8BsOR7enSyM5nhh31PjqyWDnPfKKJz8XZux1.png', '2021-11-10 03:58:21', '2021-11-10 03:58:21'),
+(3, 'adw', 'hu6Ny15J1nUcZQPKTCAu1sPlM1sXBBC7l9XPVmK3.png', '2021-11-10 03:58:34', '2021-11-10 03:58:34'),
+(4, 'adww', 'v5cY6QgS6Jc9J50kkzBwylgFnJTSRPF8em1fcZp0.jpg', '2021-11-10 03:58:46', '2021-11-10 03:58:46'),
+(5, 'awd123', 'Oe1HNY52yCwzqIrab5TPDypv6L5CAz3UzS0Y6diQ.jpg', '2021-11-10 03:59:01', '2021-11-10 03:59:01'),
+(6, 'Surezluvy', 'f5947ccf-8fd2-4ed6-846a-9c85a5817b28_rw_1920.png', '2021-11-10 04:04:46', '2021-11-10 04:04:46'),
+(8, 'ww123', 'index.jpg', '2021-11-10 04:05:40', '2021-11-10 04:05:40');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `dates`
+--
+
+CREATE TABLE `dates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `dates`
+--
+
+INSERT INTO `dates` (`id`, `title`, `start`, `end`, `created_at`, `updated_at`) VALUES
+(1, 'awd', '2021-11-04', '2021-11-05', '2021-11-09 20:43:00', '2021-11-09 21:26:37'),
+(5, 'awd', '2021-11-12', '2021-11-13', '2021-11-09 21:16:15', '2021-11-09 21:29:59'),
+(7, 'awd', '2021-11-18', '2021-11-19', '2021-11-09 21:30:03', '2021-11-09 21:30:04'),
+(8, 'ada', '2021-11-10', '2021-11-11', '2021-11-09 21:50:20', '2021-11-09 21:50:20'),
+(9, 'awd', '2021-11-03', '2021-11-04', '2021-11-09 21:59:48', '2021-11-09 21:59:48');
 
 -- --------------------------------------------------------
 
@@ -88,7 +163,20 @@ CREATE TABLE `destination_images` (
 --
 
 INSERT INTO `destination_images` (`destination_image_id`, `destination_id`, `destination_image`, `created_at`, `updated_at`) VALUES
-(9, 3, 'cy2exZ06lSxDoMxGTcfiRJxa5Apa9qoEgZtVlsfA.png', '2021-11-04 15:03:17', '2021-11-04 15:03:17');
+(9, 3, 'cy2exZ06lSxDoMxGTcfiRJxa5Apa9qoEgZtVlsfA.png', '2021-11-04 15:03:17', '2021-11-04 15:03:17'),
+(18, 28, 'ss.jpg', '2021-11-10 02:21:58', '2021-11-10 02:21:58'),
+(19, 28, 'sss.jpg', '2021-11-10 02:22:08', '2021-11-10 02:22:08'),
+(20, 28, 'eadd45a5-d289-4109-b8e7-68218ed81a04_rw_1920.png', '2021-11-10 02:26:32', '2021-11-10 02:26:32'),
+(21, 28, 'a4cc85c5-ce00-46ed-bc59-24f05c24c581_rw_1920.png', '2021-11-10 02:26:45', '2021-11-10 02:26:45'),
+(22, 28, '61676bae-3637-4ba0-a651-bad41d313f49_rw_1920.png', '2021-11-10 02:28:39', '2021-11-10 02:28:39'),
+(24, 28, '[\"eadd45a5-d289-4109-b8e7-68218ed81a04_rw_1920.png\"]', '2021-11-10 02:30:16', '2021-11-10 02:30:16'),
+(25, 28, '[\"f5947ccf-8fd2-4ed6-846a-9c85a5817b28_rw_1920.png\"]', '2021-11-10 02:30:29', '2021-11-10 02:30:29'),
+(26, 28, '[\"f5947ccf-8fd2-4ed6-846a-9c85a5817b28_rw_1920.png\"]', '2021-11-10 02:33:08', '2021-11-10 02:33:08'),
+(27, 28, '[\"ss.jpg\"]', '2021-11-10 02:33:28', '2021-11-10 02:33:28'),
+(29, 28, 'f5947ccf-8fd2-4ed6-846a-9c85a5817b28_rw_1920.png', '2021-11-10 02:36:52', '2021-11-10 02:36:52'),
+(30, 28, 'b.jpg', '2021-11-10 02:36:59', '2021-11-10 02:36:59'),
+(31, 28, 'sss.jpg', '2021-11-10 02:38:32', '2021-11-10 02:38:32'),
+(32, 28, 'aji anjk.jpg', '2021-11-10 02:39:35', '2021-11-10 02:39:35');
 
 -- --------------------------------------------------------
 
@@ -140,9 +228,6 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`event_id`, `event_name`, `event_desc`, `event_place`, `event_date_start`, `event_date_end`, `event_image`, `created_at`, `updated_at`) VALUES
 (3, 'Name 2adasd', 'asdasdadwasdad', 'place1dwadasd', '2021-11-04', '2021-11-04', 'KezchRpAhurqHzv6jopeIrA8w8maLuR8Y2L8wC7D.jpg', '2021-11-03 02:11:59', '2021-11-03 10:20:26'),
-(4, 'Name 2', 'Place <em>some</em> <u>text</u> <strong>here</strong>', 'place1', '2021-11-11', '2021-11-22', 'oinHkilT3UPnNPJZAgQ7BTmuPTl0nwDjWHjQl0rZ.png', '2021-11-03 02:12:20', '2021-11-03 02:12:20'),
-(6, 'judul 1', '<p>                        Place <em>some</em> <u>text</u> <strong>hereasdawda<font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">dwadasdaw</span></font></strong></p><ol><li><strong><font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">adadawdadad</span></font></strong></li><li><strong><font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">adwad</span></font></strong></li><li><strong><font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">adwda</span></font></strong></li><li><strong><font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">asdawdasdw</span></font></strong></li><li><strong><font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">adad</span></font></strong></li></ol><p><strong><font color=\"#000000\"><span style=\"background-color: rgb(255, 255, 0);\">adwasdw</span></font></strong></p>', 'Banyumas', '2021-11-17', '2021-11-30', '6GWRhvcYyDiiKxxEkTea4b4XCxCcdwFoEfWZdKdd.jpg', '2021-11-03 02:37:53', '2021-11-03 02:37:53'),
-(8, 'bb', 'Place <em>some</em> <u>text</u> <strong>here123</strong>', 'dd', '2021-11-26', '2021-11-26', 'rkLjufV3BiqN9cIvvZ1FpTEFJaCM6VS3sxXMI7L3.png', '2021-11-04 16:07:54', '2021-11-04 16:07:54'),
 (10, 'Dr. Athena Parker III', 'Nulla qui ut autem necessitatibus rerum perspiciatis. Consectetur ex dolor architecto repellendus ex.', '828 Wyman Route Suite 118\nWest Martafort, TN 67456', '2011-10-02', '1977-07-25', 'Dr. Stan Feil', '2021-11-07 21:52:50', '2021-11-07 21:52:50'),
 (11, 'Leola Walter', 'Nostrum voluptas et illum. Qui aperiam qui et fuga. Sunt minima voluptas et recusandae. Molestias perferendis laborum nemo sit molestiae saepe.', '517 Armstrong Courts Apt. 999\nWeimannborough, CA 60948-3685', '1978-04-01', '1995-04-03', 'Gertrude Ratke I', '2021-11-07 21:52:50', '2021-11-07 21:52:50'),
 (12, 'Alice Hoeger MD', 'Ut quia occaecati natus. Molestias quis laudantium explicabo quo nobis laboriosam. Voluptatum et recusandae sed et et sed aut qui.', '623 Jadyn Way\nBernardmouth, OK 47510-8993', '2006-08-11', '2018-10-17', 'Vernon Ernser', '2021-11-07 21:52:51', '2021-11-07 21:52:51'),
@@ -162,7 +247,52 @@ INSERT INTO `events` (`event_id`, `event_name`, `event_desc`, `event_place`, `ev
 (26, 'Ford Franecki III', 'Quaerat ut exercitationem corrupti mollitia. Omnis illum maxime quod illo. Doloribus et libero labore eos quod qui aut.', '5650 Osinski Centers Apt. 512\nLake Lilyan, KS 51831-1745', '2000-07-15', '2005-10-21', 'Domenic Ryan', '2021-11-07 21:52:52', '2021-11-07 21:52:52'),
 (27, 'Bianka Botsford IV', 'Omnis nulla deleniti harum nulla vel dolores est. Dolores molestiae aut vel magni. Saepe ab consequatur aut. Deleniti error magni et eius.', '58471 Lynch Plains Suite 870\nBartonstad, MI 30138', '1989-05-05', '1975-01-14', 'Eloy Brekke', '2021-11-07 21:52:52', '2021-11-07 21:52:52'),
 (28, 'Cecelia McClure', 'Asperiores aut aut sit ratione. Enim omnis architecto vel voluptatem est maiores. Dicta dicta qui illum et eos eaque sequi. Est sunt sed itaque minus.', '2888 Aufderhar Bridge\nNorth Muhammadberg, CO 15963-0952', '1979-02-05', '1984-12-15', 'Julianne Goyette PhD', '2021-11-07 21:52:52', '2021-11-07 21:52:52'),
-(29, 'Maximillian Yundt', 'Ea repudiandae et quia qui nobis delectus praesentium. Corrupti ratione minima omnis beatae debitis. Illum id rem aliquam ut.', '1165 Mertz Roads\nKesslershire, MT 15978-2859', '2011-07-02', '2010-11-28', 'Adell Sporer', '2021-11-07 21:52:52', '2021-11-07 21:52:52');
+(29, 'Maximillian Yundt', 'Ea repudiandae et quia qui nobis delectus praesentium. Corrupti ratione minima omnis beatae debitis. Illum id rem aliquam ut.', '1165 Mertz Roads\nKesslershire, MT 15978-2859', '2011-07-02', '2010-11-28', 'Adell Sporer', '2021-11-07 21:52:52', '2021-11-07 21:52:52'),
+(30, 'a', 'Place <em>some</em> <u>text</u> <strong>here</strong>', 'Banyumas', '2021-11-08', '2021-11-12', 'BXUFK1OTjksapXor6bwli55KujKoQlJ3AHxJCLE1.jpg', '2021-11-08 09:19:07', '2021-11-08 09:19:07'),
+(31, 'aaa', 'dwa', 'wasd', '2021-11-10', '2021-11-12', 'awda', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `information`
+--
+
+CREATE TABLE `information` (
+  `info_id` bigint(20) UNSIGNED NOT NULL,
+  `info_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `info_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `information`
+--
+
+INSERT INTO `information` (`info_id`, `info_title`, `info_desc`, `created_at`, `updated_at`) VALUES
+(1, 'awdasdwa', 'sawdasdawdasdawdadsdawdasdw', '2021-11-09 23:58:37', '2021-11-09 23:58:37'),
+(2, 'zxc', 'awd', '2021-11-10 00:09:17', '2021-11-10 00:09:17');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `infos`
+--
+
+CREATE TABLE `infos` (
+  `info_id` bigint(20) UNSIGNED NOT NULL,
+  `info_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `info_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `infos`
+--
+
+INSERT INTO `infos` (`info_id`, `info_title`, `info_desc`, `created_at`, `updated_at`) VALUES
+(2, 'asdasd', 'wadawd', '2021-11-10 00:21:12', '2021-11-10 00:28:09');
 
 -- --------------------------------------------------------
 
@@ -187,7 +317,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2021_11_04_214011_create_videos_table', 3),
 (13, '2021_11_07_174606_create_testimonis_table', 4),
 (14, '2014_10_12_100000_create_password_resets_table', 5),
-(15, '2021_11_08_053614_user', 6);
+(15, '2021_11_08_053614_user', 6),
+(16, '2021_11_10_033826_create_date_table', 7),
+(17, '2021_11_10_064409_create_information_table', 8),
+(18, '2021_11_10_071945_infos', 9),
+(19, '2021_11_10_075741_about', 10),
+(20, '2021_11_10_081426_team', 11),
+(21, '2021_11_10_103657_create_art_table', 12);
 
 -- --------------------------------------------------------
 
@@ -277,6 +413,29 @@ INSERT INTO `sliders` (`slider_id`, `slider_title`, `slider_desc`, `slider_img`,
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `teams`
+--
+
+CREATE TABLE `teams` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`, `role`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Bambang1', 'Admin2', 'team-2.jpg', NULL, '2021-11-10 03:26:46'),
+(2, 'Surezluvy', 'Tukang ngepet', '2cnvTtTUouFrszTFreBbNK3bDV1FbpvnorqUaY18.jpg', '2021-11-10 03:22:04', '2021-11-10 03:28:02');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `testimonis`
 --
 
@@ -305,7 +464,7 @@ INSERT INTO `testimonis` (`testimoni_id`, `name`, `content`, `created_at`, `upda
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -319,9 +478,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Bambang', 'whytrno2205@gmail.com', NULL, '$2y$10$SH1wzZ5QoXc9pxL0oLJ8Z.z4UR8RY/0sG1LsHvBbjLKxPy28K9x8.', NULL, '2021-11-07 22:38:58', '2021-11-07 22:38:58'),
-(2, 'Bambang', 'admin@admin.com', NULL, '$2y$10$wWJEYRBrhwIFRmV9l06x8e8K/moZ7J2Ul7EgZghEJtrvCc8z5QkG6', NULL, '2021-11-07 22:52:36', '2021-11-07 22:52:36'),
-(3, 'awdawd', 'admin@gmail.com', NULL, 'admin123', NULL, NULL, NULL);
+(1, 'Bambang', 'whytrno2205@gmail.com', NULL, '$2y$10$SH1wzZ5QoXc9pxL0oLJ8Z.z4UR8RY/0sG1LsHvBbjLKxPy28K9x8.', NULL, '2021-11-07 22:38:58', '2021-11-09 04:50:39'),
+(2, 'Bambang', 'admin@admin.com', NULL, '$2y$10$0ikDR0l3ze0DrhEkj5movux49SClPNR9wm.SkAdetsPNxfY4.JBEC', 'y0e1HU06DTEdYSxWg9HINf0gV3ykEf2KcOK44aCUXyBfElotuEeflunW06zO', '2021-11-07 22:52:36', '2021-11-09 05:01:00'),
+(4, 'Bambang', 'admin2@gmail.com', NULL, 'qweasdzxc', NULL, '2021-11-09 03:51:06', '2021-11-09 03:51:06'),
+(7, 'a', 'b@b.com', NULL, '$2y$10$KQFC5bDHTrdRGn8koxGB3.dMkD58LKgsDYDakZ5fCKzFEFEB3WnI2', NULL, '2021-11-09 19:07:17', '2021-11-09 19:07:17');
 
 -- --------------------------------------------------------
 
@@ -350,6 +510,24 @@ INSERT INTO `videos` (`video_id`, `video_url`, `created_at`, `updated_at`) VALUE
 --
 
 --
+-- Indeks untuk tabel `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `art`
+--
+ALTER TABLE `art`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `dates`
+--
+ALTER TABLE `dates`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `destinations`
 --
 ALTER TABLE `destinations`
@@ -374,6 +552,18 @@ ALTER TABLE `destination_types`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`event_id`);
+
+--
+-- Indeks untuk tabel `information`
+--
+ALTER TABLE `information`
+  ADD PRIMARY KEY (`info_id`);
+
+--
+-- Indeks untuk tabel `infos`
+--
+ALTER TABLE `infos`
+  ADD PRIMARY KEY (`info_id`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -408,6 +598,12 @@ ALTER TABLE `sliders`
   ADD PRIMARY KEY (`slider_id`);
 
 --
+-- Indeks untuk tabel `teams`
+--
+ALTER TABLE `teams`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `testimonis`
 --
 ALTER TABLE `testimonis`
@@ -431,6 +627,24 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `art`
+--
+ALTER TABLE `art`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `dates`
+--
+ALTER TABLE `dates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT untuk tabel `destinations`
 --
 ALTER TABLE `destinations`
@@ -440,7 +654,7 @@ ALTER TABLE `destinations`
 -- AUTO_INCREMENT untuk tabel `destination_images`
 --
 ALTER TABLE `destination_images`
-  MODIFY `destination_image_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `destination_image_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `destination_types`
@@ -452,13 +666,25 @@ ALTER TABLE `destination_types`
 -- AUTO_INCREMENT untuk tabel `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `event_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT untuk tabel `information`
+--
+ALTER TABLE `information`
+  MODIFY `info_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `infos`
+--
+ALTER TABLE `infos`
+  MODIFY `info_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -479,6 +705,12 @@ ALTER TABLE `sliders`
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `teams`
+--
+ALTER TABLE `teams`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `testimonis`
 --
 ALTER TABLE `testimonis`
@@ -488,7 +720,7 @@ ALTER TABLE `testimonis`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `videos`

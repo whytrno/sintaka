@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\EventController;
+use App\Http\Controllers\FullCalenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,42 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('videos', 'HomeController@videos')->name('videos');
 Route::get('events', 'HomeController@events')->name('events');
+Route::get('about', 'HomeController@about')->name('about');
+Route::get('arts', 'HomeController@arts')->name('arts');
 Route::get('destinations', 'HomeController@destinations')->name('destinations');
 Route::get('destination/type/{destinationtype}', 'HomeController@type')->name('destination.type');
-Route::get('destination/shows/{destinationtype}', 'HomeController@destinationShow')->name('destination.shows');
+Route::get('destination/shows/{destination}', 'HomeController@destinationShow')->name('destination.shows');
 Route::get('event/shows/{event}', 'HomeController@eventShow')->name('event.shows');
 Route::post('event/search', 'HomeController@eventSearch')->name('event.search');
 Route::resource('/', HomeController::class);
 
 Route::get('admin/events', 'EventController@admin')->name('admin.events');
+Route::get('admin/activeEvents', 'EventController@active')->name('admin.activeEvents');
+Route::get('admin/inActiveEvents', 'EventController@history')->name('admin.inActiveEvents');
 Route::get('admin/addEvent', 'EventController@create')->name('admin.addEvent');
 Route::get('admin/editEvent/{event}', 'EventController@edit')->name('admin.editEvent');
 Route::get('admin/destroyEvent/{event}', 'EventController@destroy')->name('admin.destroyEvent');
 Route::resource('event', EventController::class);
+
+Route::get('admin/infos', 'InformationController@admin')->name('admin.infos');
+Route::get('admin/addInfo', 'InformationController@create')->name('admin.addInfo');
+Route::post('admin/storeInfo', 'InformationController@store')->name('admin.storeInfo');
+Route::get('admin/editInfo/{info}', 'InformationController@edit')->name('admin.editInfo');
+Route::post('admin/updateInfo/{info}', 'InformationController@update')->name('admin.updateInfo');
+Route::get('admin/destroyInfo/{info}', 'InformationController@destroy')->name('admin.destroyInfo');
+Route::resource('info', InformationController::class);
+
+Route::get('fullcalender', [FullCalenderController::class, 'index']);
+Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
+Route::post('fullcalenderAjax/add', [FullCalenderController::class, 'add']);
+
+Route::get('admin/users', 'UserController@index')->name('admin.users');
+Route::get('admin/addUser', 'UserController@create')->name('admin.addUser');
+Route::post('admin/storeUser', 'UserController@store')->name('admin.storeUser');
+Route::get('admin/editUser/{user}', 'UserController@edit')->name('admin.editUser');
+Route::get('admin/destroyUser/{user}', 'UserController@destroy')->name('admin.destroyUser');
+Route::post('admin/updateUser/{user}', 'UserController@update')->name('admin.updateUser');
+Route::resource('user', UserController::class);
 
 Route::get('admin/destinations', 'DestinationController@admin')->name('admin.destinations');
 Route::get('admin/addDestination', 'DestinationController@create')->name('admin.addDestination');
@@ -40,6 +65,11 @@ Route::get('admin/videos', 'VideoController@index')->name('admin.videos');
 Route::get('admin/addVideo', 'VideoController@create')->name('admin.addVideo');
 Route::post('admin/storeVideo', 'VideoController@store')->name('admin.storeVideo');
 Route::get('admin/destroyVideo/{video}', 'VideoController@destroy')->name('admin.destroyVideo');
+
+Route::get('admin/arts', 'ArtController@index')->name('admin.arts');
+Route::get('admin/addArt', 'ArtController@create')->name('admin.addArt');
+Route::post('admin/storeArt', 'ArtController@store')->name('admin.storeArt');
+Route::get('admin/destroyArt/{art}', 'ArtController@destroy')->name('admin.destroyArt');
 
 Route::get('admin/imageDestination/{destination}', 'DestinationController@imageDestination')->name('admin.imageDestination');
 Route::get('admin/addDestinationImage/{destination}', 'DestinationController@addDestinationImage')->name('admin.addDestinationImage');
@@ -53,6 +83,12 @@ Route::get('admin/editTestimoni/{testimoni}', 'TestimoniController@edit')->name(
 Route::post('admin/updateTestimoni/{testimoni}', 'TestimoniController@update')->name('admin.updateTestimoni');
 Route::get('admin/destroyTestimoni/{testimoni}', 'TestimoniController@destroy')->name('admin.destroyTestimoni');
 
+Route::get('admin/addTeam', 'TeamController@create')->name('admin.addTeam');
+Route::post('admin/storeTeam', 'TeamController@store')->name('admin.storeTeam');
+Route::get('admin/editTeam/{team}', 'TeamController@edit')->name('admin.editTeam');
+Route::post('admin/updateTeam/{team}', 'TeamController@update')->name('admin.updateTeam');
+Route::get('admin/destroyTeam/{team}', 'TeamController@destroy')->name('admin.destroyTeam');
+
 Route::get('login', 'AdminController@login')->name('login');
 Route::post('admin/login', 'AdminController@actionlogin')->name('admin.login');
 
@@ -64,8 +100,9 @@ Route::post('admin/storeSlider', 'SliderController@storeSlider')->name('admin.st
 
 Route::post('admin/changeLogo', 'AdminController@changeLogo')->name('admin.changeLogo');
 Route::post('admin/updateSetting/{setting}', 'AdminController@updateSetting')->name('admin.updateSetting');
+Route::post('admin/updateAbout/{about}', 'AdminController@updateAbout')->name('admin.updateAbout');
 Route::resource('admin', AdminController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

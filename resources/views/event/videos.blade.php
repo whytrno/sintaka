@@ -9,7 +9,7 @@
 
 @section('content')
 
-<section class="page-title" style="background-image:url({{ Storage::url('public/assets/images/main-slider/sangiran.jpg') }})">
+<section class="page-title" style="background-image:url({{ asset('storage/assets/images/main-slider/sangiran.jpg') }})">
     <div class="auto-container">
         <h2>Video</h2>
         <ul class="page-breadcrumb">

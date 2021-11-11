@@ -48,7 +48,7 @@
                         </td>
                         <td>{{ $data->event_place }}</td>
                         <td>{{ $data->event_date_start}} - {{ $data->event_date_end }}</td>
-                        <td><img style="width: 150px; height: 150px" src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></td>
+                        <td><img style="width: 150px; height: 150px" src="{{ asset('storage/events/'.$data->event_image) }}" alt="" /></td>
                         <td>
                           <a href="{{ route('admin.editEvent', $data->event_id) }}" class="btn btn-primary">Ubah</a>
                           <form action="{{ route('admin.destroyEvent', $data->event_id) }}">

@@ -29,12 +29,6 @@ class TestimoniController extends Controller
         return view('admin.testimoni.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -53,37 +47,11 @@ class TestimoniController extends Controller
             return redirect()->route('admin.testimonis')->with(['error' => 'Data gagal disimpan']);
         }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Testimoni  $testimoni
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Testimoni $testimoni)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Testimoni  $testimoni
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Testimoni $testimoni)
     {
         $setting_get = Setting::where('setting_id', 1)->first();
         return view('admin.testimoni.edit', compact('testimoni', 'setting_get'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Testimoni  $testimoni
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Testimoni $testimoni)
     {
         $request->validate([
@@ -106,13 +74,6 @@ class TestimoniController extends Controller
             return redirect()->route('admin.testimonis')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Testimoni  $testimoni
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Testimoni $testimoni)
     {
         $data = Testimoni::findOrFail($testimoni->testimoni_id);

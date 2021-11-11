@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 // UPDATE IMAGE
 use Illuminate\Support\Facades\Storage;
 use App\Models\DestinationType;
@@ -20,6 +21,18 @@ class EventController extends Controller
     {
         $setting_get = Setting::where('setting_id', 1)->first();
         $event = Event::all();
+        return view('admin.event.index', compact('event', 'setting_get'));
+    }
+    public function active()
+    {
+        $setting_get = Setting::where('setting_id', 1)->first();
+        $event = Event::whereDate('event_date_start', '>=', Carbon::today()->format('Y-m-d'))->get();
+        return view('admin.event.index', compact('event', 'setting_get'));
+    }
+    public function history()
+    {
+        $setting_get = Setting::where('setting_id', 1)->first();
+        $event = Event::whereDate('event_date_start', '<=', Carbon::today()->format('Y-m-d'))->get();
         return view('admin.event.index', compact('event', 'setting_get'));
     }
 

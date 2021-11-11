@@ -10,7 +10,7 @@
 @section('content')
 
 <!--Page Title-->
-<section class="page-title" style="background-image:url({{ Storage::url('public/assets/images/main-slider/sangiran.jpg') }})">
+<section class="page-title" style="background-image:url({{ asset('storage/assets/images/main-slider/sangiran.jpg') }})">
     <div class="auto-container">
         <h2>Acara</h2>
         <ul class="page-breadcrumb">
@@ -34,7 +34,7 @@
                     <div class="news-block-three">
                         <div class="inner-box">
                             <div class="image-box">
-                                <figure class="image"><a href="{{ route('event.shows', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt=""></a></figure>
+                                <figure class="image"><a href="{{ route('event.shows', $data->event_id) }}"><img src="{{ asset('storage/events/'.$data->event_image) }}" alt=""></a></figure>
                                 <span class="date">{{ $data->event_date_start }} - {{ $data->event_date_end }}</span>
                             </div>
                             <div class="lower-content">
@@ -79,7 +79,7 @@
 
                         @forelse ($event_latest as $latest)
                             <article class="post">
-                                <figure class="post-thumb"><a href="{{ route('event.show', $latest->event_id) }}"><img src="{{ Storage::url('public/events/').$latest->event_image }}" alt=""></a></figure>
+                                <figure class="post-thumb"><a href="{{ route('event.show', $latest->event_id) }}"><img src="{{ asset('storage/events/'.$latest->event_image) }}" alt=""></a></figure>
                                 <div class="text"><a href="{{ route('event.show', $latest->event_id) }}">{{ Str::limit($latest->event_name, 50, $end=" ...") }}</a></div>
                                 <div class="post-info">{{ $latest->event_date_start }} - {{ $latest->event_date_end }}</div>
                             </article>

@@ -9,7 +9,7 @@
 
 @section('content')
 <!--Page Title-->
-<section class="page-title" style="background-image:url({{ Storage::url('public/assets/images/main-slider/sangiran.jpg') }})">
+<section class="page-title" style="background-image:url({{ asset('storage/assets/images/main-slider/sangiran.jpg') }})">
     <div class="auto-container">
         <h2>Wisata</h2>
         <ul class="page-breadcrumb">
@@ -35,11 +35,11 @@
             <div class="service-block-three col-lg-4 col-md-6 col-sm-12">
                 <div class="inner-box wow fadeInUp" data-wow-delay="250ms" data-wow-duration="1500ms">
                     <div class="image">
-                        <a href="{{ route('destination.shows', $d->destination_id) }}"><img src="{{ Storage::url('public/assets/images/resource/service-15.jpg') }}" alt="" /></a>
+                        <a href="{{ route('destination.shows', $d->destination_id) }}"><img src="{{ asset('storage/destinations/'.$d->destination_image) }}" alt="" /></a>
                     </div>
                     <div class="lower-content">
                         <h3><a href="{{ route('destination.shows', $d->destination_id) }}">{{ $d->destination_name }}</a></h3>
-                        <div class="text">{{ $d->destination_profil }}</div>
+                        <div class="text">{{ Str::limit($d->destination_profil, 100, $end=" ...") }}</div>
                         <a href="{{ route('destination.shows', $d->destination_id) }}" class="read-more">Read more</a>
                     </div>
                 </div>

@@ -19,7 +19,7 @@
 				@forelse($slider as $data)
 					<!-- Slide -->
 					<div class="slide">
-						<div class="image-layer" style="background-image:url({{ asset('storage/assets/images/main-slider/2.jpg') }})"></div>
+						<div class="image-layer" style="background-image:url({{ asset('storage/sliders/'.$data->slider_img) }})"></div>
 						<div class="auto-container">
 							<div class="content">
 								<h2>{{ $data->slider_title }}</h2>
@@ -41,7 +41,32 @@
 		<div class="auto-container">
 			<!-- Title Box -->
 			<div class="title-box">
-				<h2>Info Terkini</h2>
+				<h2>Informasi terbaru</h2>
+			</div>
+			<div class="row clearfix">
+
+				<!-- Service Block -->
+				
+				@forelse ($info as $data2)
+				<div class="service-block col-lg-6 col-md-6 col-sm-12" style="margin-bottom: 15px">
+					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+						<div class="lower-content">
+							<h3><a href="residental-interior.html">{{ $data2->info_title }}</a></h3>
+							<div class="text"><p>{{strip_tags(Str::limit($data2->info_desc, 250, $end=" ..."))}}</p></div>
+						</div>
+					</div>
+				</div>
+				@empty
+				<h1 class="centered">Data kosong</h1>
+				@endforelse
+
+			</div>
+
+		</div>
+		<div class="auto-container">
+			<!-- Title Box -->
+			<div class="title-box">
+				<h2>Acara terbaru</h2>
 			</div>
 			<div class="row clearfix">
 
@@ -51,11 +76,11 @@
 				<div class="service-block col-lg-6 col-md-6 col-sm-12" style="margin-bottom: 15px">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<a href="{{ route('event.show', $data->event_id) }}"><img src="{{ Storage::url('public/events/').$data->event_image }}" alt="" /></a>
+							<a href="{{ route('event.show', $data->event_id) }}"><img src="{{ asset('storage/events/'.$data->event_image) }}" alt="" /></a>
 						</div>
 						<div class="lower-content">
 							<h3><a href="residental-interior.html">{{ $data->event_name }}</a></h3>
-							<div class="text"><p>{{strip_tags(Str::limit($data->event_desc, 250, $end=" ..."))}}</p></div>
+							<div class="text"><p>{{strip_tags(Str::limit($data->event_desc, 150, $end=" ..."))}}</p></div>
 						</div>
 					</div>
 				</div>
@@ -88,17 +113,11 @@
 			</div>
 
 			<!--Image Column-->
-        	<div class="image-column" style="background-image: url({{ asset('storage/assets/images/resource/video-img.jpg') }})">
+        	<div class="image-column" style="background-image: url({{ asset('storage/assets/images/sintaka-logo-kecil.jpg') }})">
 				<div class="inner-column">
 					<div class="image">
-						<img src="{{ asset('storage/assets/images/resource/video-img.jpg') }}" alt="">
+						<img src="{{ asset('storage/assets/images/logo-sintakaa.jpg') }}" alt="">
 					</div>
-					<a href="https://www.youtube.com/watch?v=SXZXtD60t2g" class="overlay-link lightbox-image">
-						<div class="icon-box">
-							<span class="icon flaticon-play-button"></span>
-                            <i class="ripple"></i>
-						</div>
-					</a>
 				</div>
             </div>
             <!--End Image Column-->
@@ -122,11 +141,6 @@
 				<div class="testimonial-block">
 					<div class="inner-box">
 						<div class="content">
-							<div class="image-outer">
-								<div class="image">
-									<img src="{{ asset('storage/assets/images/resource/author-1.jpg') }}" alt="" />
-								</div>
-							</div>
 							<h3>{{ $data->name }}</h3>
 							<div class="text">{{ $data->content }}</div>
 						</div>
@@ -140,13 +154,4 @@
 		</div>
 	</section>
 	<!-- End Testimonial Section -->
-	<!-- Call To Action Section -->
-	<section class="call-to-action-section" style="background-image: url({{ asset('storage/assets/images/background/1.jpg') }})">
-		<div class="auto-container">
-			<h2>Think Interior. Think Stella Orr'e</h2>
-			<div class="text">Interiors for all styles and budgets, Choose from thousands of <br> designs. Heart your favorites to shortlist.</div>
-			<a href="contact.html" class="theme-btn btn-style-two"><span class="txt">contact us</span></a>
-		</div>
-	</section>
-	<!-- End Call To Action Section -->
 @endsection

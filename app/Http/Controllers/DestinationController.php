@@ -183,24 +183,55 @@ class DestinationController extends Controller
     }
     public function storeDestinationImage(Request $request)
     {
-        $request->validate([
-            'destination_id' => 'required',
-            'destination_image' => 'required|image|mimes:png,jpg,jpeg'
-        ]);
+        foreach($request->file('file') as $image)
+        {
+            $imageName=$image->getClientOriginalName();
+            // $image->move(public_path().'public/destinations/', $imageName);  
+            $image->storeAs('public/destinations', $imageName);
+            $fileNames[] = $imageName;
 
-        $image = $request->file('destination_image');
-        $image->storeAs('public/destinations', $image->hashName());
-
-        $input = DestinationImage::create([
-            'destination_id' => $request->destination_id,
-            'destination_image' => $image->hashName()
-        ]);
-
-        if($input){
-            return redirect()->route('admin.imageDestination', $request->destination_id)->with(['success' => 'Data berhasil disimpan']);
-        } else{
-            return redirect()->route('admin.imageDestination', $request->destination_id)->with(['error' => 'Data gagal disimpan']);
+            DestinationImage::create([
+                    'destination_id' => $request->destination_id,
+                    'destination_image' => $imageName
+                ]);
+            return back()
+                ->with(['success' => 'Gambar berhasil di upload'])
+                ->with('files',$fileNames);
         }
+
+        // $images = json_encode($fileNames);
+        // $images2 = json_decode($images);
+        
+        // Store $images image in DATABASE from HERE 
+        // DestinationImage::create([
+        //     'destination_id' => $request->destination_id,
+        //     'destination_image' => $images
+        // ]);
+
+        // return back()
+        //     ->with('success','You have successfully file uplaod.')
+        //     ->with('files',$fileNames);
+
+        // $request->validate([
+        //     'destination_id' => 'required',
+        //     'destination_image' => 'required|image|mimes:png,jpg,jpeg'
+        // ]);
+
+        // $image = $request->file('destination_image');
+        // $image->storeAs('public/destinations', $image->hashName());
+        
+
+        
+        // $input = DestinationImage::create([
+        //     'destination_id' => $request->destination_id,
+        //     'destination_image' => $image->hashName()
+        // ]);
+
+        // if($input){
+        //     return redirect()->route('admin.imageDestination', $request->destination_id)->with(['success' => 'Data berhasil disimpan']);
+        // } else{
+        //     return redirect()->route('admin.imageDestination', $request->destination_id)->with(['error' => 'Data gagal disimpan']);
+        // }
     }
     public function destroyDestinationImage(DestinationImage $destinationimage)
     {

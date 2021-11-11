@@ -9,7 +9,7 @@
 
 @section('content')
 <!--Page Title-->
-<section class="page-title" style="background-image:url({{ Storage::url('public/assets/images/main-slider/sangiran.jpg') }})">
+<section class="page-title" style="background-image:url({{ asset('storage/assets/images/main-slider/sangiran.jpg') }})">
     <div class="auto-container">
         <h2>Detail Wisata</h2>
         <ul class="page-breadcrumb">
@@ -31,11 +31,10 @@
                 <div class="basic-details">
                     <div class="row clearfix">
                         <div class="image-column col-lg-6 col-md-12 col-sm-12">
-                            <figure class="image-box"><a href="{{ Storage::url('public/assets/images/resource/products/9.jpg') }}" class="lightbox-image" title="Image Caption Here"><img src="{{ Storage::url('public/assets/images/resource/products/9.jpg') }}" alt=""></a></figure>
+                            <figure class="image-box"><a href="#" class="lightbox-image" title="Image Caption Here"><img src="{{ asset('storage/destinations/'.$destination->destination_image) }}" alt=""></a></figure>
                         </div>
                         <div class="info-column col-lg-6 col-md-12 col-sm-12">
                             <div class="inner-column">
-                                {{-- <pre>{{ print_r($destination) }}</pre> --}}
                                 <h4>{{ $destination->destination_name }}</h4>
                                 <div class="text">{{ $destination->destination_profil }}</div>
                                 <div class="price">Harga tiket masuk:<br><label for="">{!! $destination->destination_ticket_price !!}</label></div>
@@ -70,30 +69,10 @@
                             <!--Tab-->
                             <div class="tab" id="prod-reviews">
                                 <!--Reviews Container-->
-                                {{-- <div class="comments-area">
-                                    <!--Comment Box-->
-                                    <div class="comment-box">
-                                        <div class="comment">
-                                            <div class="author-thumb"><img src="{{ Storage::url('public/assets/images/resource/author-1.jpg') }}" alt=""></div>
-                                            <div class="comment-inner">
-                                                <div class="comment-info clearfix">Steven Rich – Sep 17, 2016:</div>
-                                                <div class="rating">
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star light"></span>
-                                                </div>
-                                                <div class="text">How all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div> --}}
                                 <div class="row">
                                     @forelse($image as $data)
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 25px">
-                                            <img style="width: 100%; height: 100%;" src="{{ Storage::url('public/destinations/').$data->destination_image }}" alt="" /></a>
+                                            <img style="width: 100%; height: 100%;" src="{{ asset('storage/destinations/'.$data->destination_image) }}" alt="" /></a>
                                         </div>
                                     @empty
                                         

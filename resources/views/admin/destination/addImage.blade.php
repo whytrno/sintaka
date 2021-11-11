@@ -15,6 +15,19 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
+            
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+              </div>
+            @endif
+            @if ($message = Session::get('error'))
+              <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+              </div>
+            @endif
             <form action="{{ route('admin.storeDestinationImage') }}" method="post" enctype="multipart/form-data">
                 @csrf
               <div class="card-body">
@@ -24,7 +37,7 @@
                   <input readonly type="text" class="form-control" id="exampleInputEmail1" value="{{ $destination->destination_name }}">
                 </div>
                 
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
@@ -35,11 +48,19 @@
                         <span class="input-group-text">Upload</span>
                       </div>
                     </div>
+                </div> --}}
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" name="file[]" accept="image/*" multiple="multiple" class="custom-file-input" id="exampleInputFile">
+                      
+                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-success">Upload</button>
+                    </div>
+                  </div>
                 </div>
-
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
             </div>
             </form>
           </div>

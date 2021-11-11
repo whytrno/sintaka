@@ -27,7 +27,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{ Storage::url('public/admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__wobble" src="{{  asset('storage/admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -62,9 +62,6 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ Storage::url('public/settings/logo.jpg') }}" class="elevation-2" alt="User Image">
-        </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->email }}</a>
         </div>
@@ -78,13 +75,61 @@
           
           <li class="nav-header">Menu</li>
           <li class="nav-item">
+            <a href="{{ route('admin.index') }}" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Home
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.infos') }}" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Informasi
+                {{-- <span class="badge badge-info right">2</span> --}}
+              </p>
+            </a>
+          </li>
+          {{-- <li class="nav-item">
             <a href="{{ route('admin.events') }}" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
                 Acara
                 {{-- <span class="badge badge-info right">2</span> --}}
+              {{-- </p>
+            </a>
+          </li> --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Acara
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.activeEvents') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Acara terkini
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.inActiveEvents') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>History acara</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.events') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Semua acara</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('admin.destinations') }}" class="nav-link">
@@ -108,6 +153,22 @@
               <i class="nav-icon far fa-image"></i>
               <p>
                 Testimoni
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.arts') }}" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Kesenian
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.users') }}" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Pengguna
               </p>
             </a>
           </li>
@@ -217,6 +278,7 @@
 
 <script>
     $(function () {
+      
       $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]

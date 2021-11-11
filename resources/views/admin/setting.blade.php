@@ -25,7 +25,7 @@
             <div class="card-body box-profile">
               <div class="text-center">
                 <img class="profile-user-img img-fluid"
-                     src="{{ Storage::url('public/settings/logo.jpg') }}"
+                     src="{{ asset('storage/settings/logo.jpg') }}"
                      alt="User profile picture">
               </div>
 
@@ -110,6 +110,7 @@
             <div class="card-header p-2">
               <ul class="nav nav-pills">
                 <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Slider</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about" data-toggle="tab">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
               </ul>
             </div><!-- /.card-header -->
@@ -133,7 +134,7 @@
                         <tr>
                           <td>{{ $data->slider_title }}</td>
                           <td>{{ $data->slider_desc }}</td>
-                          <td><img style="width: 300px; height: 150px" src="{{ Storage::url('public/sliders/').$data->slider_img }}" alt="" /></td>
+                          <td><img style="width: 300px; height: 150px" src="{{ asset('storage/sliders/'.$data->slider_img) }}" alt="" /></td>
                           <td>
                             <a href="{{ route('admin.editSlider', $data->slider_id) }}" class="btn btn-primary">Ubah</a>
                             <form action="{{ route('admin.destroySlider', $data->slider_id) }}">
@@ -149,6 +150,48 @@
                       </tbody>
                     </table>
                   </div>
+                </div>
+                <div class="tab-pane" id="about">
+                  <form class="form-horizontal" method="post" action="{{ route('admin.updateAbout', $about->id) }}" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+                    <div class="form-group row">
+                      <label for="inputName" class="col-sm-2 col-form-label">Judul</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="title" value="{{ $about->title }}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputExperience" class="col-sm-2 col-form-label">Sub judul</label>
+                      <div class="col-sm-10">
+                        <textarea name="sub_title" class="form-control" id="inputExperience" placeholder="Experience">{{ $about->sub_title }}</textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputExperience" class="col-sm-2 col-form-label">Deskripsi</label>
+                      <div class="col-sm-10">
+                        <textarea name="desc" class="form-control" id="inputExperience" placeholder="Experience">{{ $about->desc }}</textarea>
+                      </div>
+                    </div>
+                    {{-- <div class="form-group row">
+                      <label for="inputEmail" class="col-sm-2 col-form-label">Gambar  </label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="address" value="{{ $about->address }}">
+                      </div>
+                    </div> --}}
+                    <div class="form-group row">
+                      <label for="inputEmail" class="col-sm-2 col-form-label">Gambar  </label>
+                      <div class="custom-file">
+                        <input name="image" type="file" class="custom-file-input" id="inputGroupFile02" value="{{ $about->image }}">
+                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
                 <div class="tab-pane" id="settings">
                   <form class="form-horizontal" method="post" action="{{ route('admin.updateSetting', $setting_get->setting_id) }}" enctype="multipart/form-data">
@@ -190,12 +233,6 @@
                         <input type="text" class="form-control" id="inputSkills" placeholder="Skills" name="address_url" value="{{ $setting_get->address_url }}">
                       </div>
                     </div>
-                    {{-- <div class="form-group row">
-                      <div class="custom-file">
-                        <input name="logo" type="file" class="custom-file-input" id="inputGroupFile02" value="{{ $setting_get->logo }}"
-                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                      </div>
-                    </div> --}}
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-danger">Submit</button>
@@ -209,6 +246,45 @@
             </div><!-- /.card-body -->
           </div>
           <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Anggota</h3>
+              <a href="{{ route('admin.addTeam') }}" class="btn btn-primary float-right">Tambah data</a>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Nama</th>
+                  <th>Isi</th>
+                  <th>Foto</th>
+                  <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse ($team as $data)
+                  <tr>
+                    <td>{{ $data->name }}</td>
+                    <td>{{ $data->role }}</td>
+                    <td><img style="width: 170px; height: 200px" src="{{ asset('storage/teams/'.$data->image) }}" alt="" /></td>
+                    <td>
+                      <a href="{{ route('admin.editTeam', $data->id) }}" class="btn btn-primary">Ubah</a>
+                      <form action="{{ route('admin.destroyTeam', $data->id) }}">
+                        @csrf
+                        @method('Delete')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                      </form>
+                    </td>
+                  </tr>
+                @empty
+                  
+                @endforelse
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
         </div>
         <!-- /.col -->
       </div>

@@ -10,8 +10,12 @@ use App\Models\Destination;
 use App\Models\DestinationImage;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\Info;
+use App\Models\About;
 use App\Models\Testimoni;
 use App\Models\Video;
+use App\Models\Team;
+use App\Models\Art;
 
 class HomeController extends Controller
 {
@@ -22,13 +26,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $event = Event::limit(4)->latest()->get();
+        $event = Event::limit(2)->latest()->get();  
         $destination_type = DestinationType::all();
         $setting_get = Setting::where('setting_id', 1)->first();
         $slider = Slider::all();
         $testimoni = Testimoni::all();
+        $info = Info::limit(2)->latest()->get();
         
-        return view('event.index', compact('event', 'destination_type', 'setting_get', 'slider', 'testimoni'));
+        return view('event.index', compact('info', 'event', 'destination_type', 'setting_get', 'slider', 'testimoni'));
+    }
+    public function about()
+    {
+        $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
+        $about = About::where('id', 1)->first();
+        $team = Team::all();
+        
+        return view('event.about', compact('about', 'team', 'destination_type', 'setting_get'));
     }
 
     public function events(Event $event)
@@ -39,6 +53,15 @@ class HomeController extends Controller
         $setting_get = Setting::where('setting_id', 1)->first();
 
         return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
+    }
+
+    public function arts(Art $art)
+    {
+        $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
+        $art = Art::all();
+        
+        return view('event.arts', compact('destination_type', 'art', 'setting_get'));
     }
 
     public function eventSearch(Request $request){

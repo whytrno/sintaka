@@ -16,18 +16,4 @@ Beberapa masih menggunakan bahasa inggris
 belum ada notif berhasil/gagal setelah crud (Done)
 Hapus data yang tidak perlu
 
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
-docker-compose.override.yml
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-/.idea
-/.vscode
+

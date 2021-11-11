@@ -6,12 +6,12 @@
 <meta charset="utf-8">
 <title>@yield('title')</title>
 <!-- Stylesheets -->
-<link href="{{ asset('storage/css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('storage/css/style.css') }}" rel="stylesheet">
-<link href="{{ asset('storage/css/responsive.css') }}" rel="stylesheet">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
-<link rel="shortcut icon" href="{{ asset('storage/assets/images/favicon.png') }}" type="image/x-icon">
-<link rel="icon" href="{{ asset('storage/assets/images/favicon.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 <script src="https://kit.fontawesome.com/61ede77fc1.js" crossorigin="anonymous"></script>
 
 <!-- Responsive -->
@@ -35,7 +35,7 @@
                 <div class="auto-container clearfix">
                     <!--Info-->
                     <div class="logo-outer">
-                        <div class="logo"><a href="{{ route('index') }}"><img height="70" width="180" src="{{ Storage::url('public/settings/logo.jpg') }}" alt="" title=""></a></div>
+                        <div class="logo"><a href="{{ route('index') }}"><img height="70" width="180" src="{{ asset('storage/settings/logo.jpg') }}" alt="" title=""></a></div>
                     </div>
 
                     <!--Nav Box-->
@@ -62,8 +62,9 @@
                                             @endforelse
                                         </ul>
                                     </li>
+                                    <li><a href="{{ route('arts') }}">Kesenian</a></li>
                                     <li><a href="{{ route('videos') }}">Video</a></li>
-                                    <li><a href="contact.html">Tentang</a></li>
+                                    <li><a href="{{ route('about') }}">Tentang</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -86,16 +87,14 @@
             <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
 
             <nav class="menu-box">
-                <div class="nav-logo"><a href="{{ route('index') }}"><img height="70" width="180" src="{{ Storage::url('public/settings/logo.jpg') }}" alt="" title=""></a></div>
+                <div class="nav-logo"><a href="{{ route('index') }}"><img height="70" width="180" src="{{ asset('storage/settings/logo.jpg') }}" alt="" title=""></a></div>
                 <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
 				<!--Social Links-->
 				<div class="social-links">
 					<ul class="clearfix">
 						<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-						<li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-						<li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
 						<li><a href="#"><span class="fab fa-instagram"></span></a></li>
-						<li><a href="#"><span class="fab fa-youtube"></span></a></li>
+						<li><a href="#"><span class="fab fa-tiktok"></span></a></li>
 					</ul>
                 </div>
             </nav>
@@ -122,7 +121,7 @@
                             <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                 <div class="footer-widget logo-widget">
 									<div class="logo">
-                                    	<a href="{{ route('index') }}"><img style="max-width: 250px; max-height: 100px" src="{{ Storage::url('public/settings/logo.jpg') }}" alt="" /></a>
+                                    	<a href="{{ route('index') }}"><img style="max-width: 250px; max-height: 100px" src="{{ asset('storage/settings/logo.jpg') }}" alt="" /></a>
                                     </div>
                                     <div class="text">@yield('description')</div>
 								</div>
@@ -178,19 +177,19 @@
 </div>
 
 <!--Scroll to top-->
-<script src="{{ asset('storage/js/jquery.js') }}"></script>
-<script src="{{ asset('storage/js/popper.min.js') }}"></script>
-<script src="{{ asset('storage/js/jquery-ui.js') }}"></script>
-<script src="{{ asset('storage/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('storage/js/jquery.fancybox.js') }}"></script>
-<script src="{{ asset('storage/js/isotope.js') }}"></script>
-<script src="{{ asset('storage/js/owl.js') }}"></script>
-<script src="{{ asset('storage/js/wow.js') }}"></script>
-<script src="{{ asset('storage/js/appear.js') }}"></script>
-<script src="{{ asset('storage/js/scrollbar.js') }}"></script>
-<script src="{{ asset('storage/js/script.js') }}"></script>
-<script src="{{ asset('storage/js/mixitup.js') }}"></script>
-<script src="{{ asset('storage/js/jquery.bootstrap-touchspin.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('js/isotope.js') }}"></script>
+<script src="{{ asset('js/owl.js') }}"></script>
+<script src="{{ asset('js/wow.js') }}"></script>
+<script src="{{ asset('js/appear.js') }}"></script>
+<script src="{{ asset('js/scrollbar.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/mixitup.js') }}"></script>
+<script src="{{ asset('js/jquery.bootstrap-touchspin.js') }}"></script>
 </body>
 
 <!-- stella-orre/  30 Nov 2019 03:45:45 GMT -->

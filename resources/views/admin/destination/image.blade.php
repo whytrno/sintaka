@@ -27,32 +27,33 @@
             
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Gambar</th>
-                  <th>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
-                @forelse ($image as $data)
+            
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
                   <tr>
-                    <td><img style="width: 150px; height: 150px" src="{{ Storage::url('public/destinations/').$data->destination_image }}" alt="" /></td>
-                    <td>
-                      <form action="{{ route('admin.destroyDestinationImage', $data->destination_image_id) }}">
-                        @csrf
-                        @method('Delete')
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                      </form>
-                    </td>
+                    <th>Gambar</th>
+                    <th>Aksi</th>
                   </tr>
-                @empty
-                  
-                @endforelse
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                  @forelse ($image as $data)
+                    <tr>
+                      <td><img style="width: 150px; height: 150px" src="{{ asset('storage/destinations/'.$data->destination_image) }}" alt="" /></td>
+                      <td>
+                        <form action="{{ route('admin.destroyDestinationImage', $data->destination_image_id) }}">
+                          @csrf
+                          @method('Delete')
+                          <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                      </td>
+                    </tr>
+                  @empty
+                    
+                  @endforelse
+                  </tbody>
+                </table>
+              </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->

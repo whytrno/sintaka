@@ -10,8 +10,12 @@ use App\Models\DestinationType;
 use App\Models\DestinationImage;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\About;
 use App\Models\Testimoni;
+use App\Models\Team;
 use Illuminate\Support\Facades\Storage;
+
+use Redirect,Response;
 
 class AdminController extends Controller
 {
@@ -19,6 +23,44 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function calendar(){
+        if(request()->ajax()) 
+        {
+ 
+         $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
+         $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
+ 
+         $data = Event::whereDate('event_date_start', '>=', $start)->whereDate('event_date_end',   '<=', $end)->get(['event_id','event_name','event_date_start', 'event_date_end']);
+         return Response::json($data);
+        }
+        return view('admin.calendar');
+    }
+    public function createCalendar(Request $request)
+    {  
+        $insertArr = [ 'event_name' => $request->title,
+                       'event_date_start' => $request->start,
+                       'event_date_end' => $request->end
+                    ];
+        $event = Event::insert($insertArr);   
+        return Response::json($event);
+    }
+    public function updateCalendar(Request $request)
+    {   
+        $where = array('id' => $request->id);
+        $updateArr = ['title' => $request->title,'start' => $request->start, 'end' => $request->end];
+        $event  = Event::where($where)->update($updateArr);
+ 
+        return Response::json($event);
+    } 
+ 
+ 
+    public function destroyCalendar(Request $request)
+    {
+        $event = Event::where('id',$request->id)->delete();
+   
+        return Response::json($event);
+    }  
     /**
      * Display a listing of the resource.
      *
@@ -29,24 +71,16 @@ class AdminController extends Controller
         $setting_get = Setting::where('setting_id', 1)->first();
         $slider = Slider::all();
         $testimoni = Testimoni::all();
+        $about = About::where('id', 1)->first();
         $count_destination = Destination::count();
         $count_event = Event::count();
-        return view('admin.setting', compact('setting_get', 'slider', 'testimoni', 'count_destination', 'count_event'));
+        $team = Team::all();
+        return view('admin.setting', compact('setting_get', 'team', 'about', 'slider', 'testimoni', 'count_destination', 'count_event'));
     }
 
     public function login()
     {
         return view('admin.login');
-    }
-
-    public function setting(Setting $setting)
-    {
-        $setting_get = Setting::where('setting_id', 1)->first();
-        $slider = Slider::all();
-        $testimoni = Testimoni::all();
-        $count_destination = Destination::count();
-        $count_event = Event::count();
-        return view('admin.setting', compact('setting_get', 'slider', 'testimoni', 'count_destination', 'count_event'));
     }
     public function updateSetting(Request $request, Setting $setting)
     {
@@ -70,6 +104,38 @@ class AdminController extends Controller
             'email' => $request->email,
             'address_url' => $request->address_url,
         ]);
+
+        if($data){
+            //redirect dengan pesan sukses
+            return redirect()->route('admin.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('admin.index')->with(['error' => 'Data Gagal Diupdate!']);
+        }
+    }public function updateAbout(Request $request, About $about)
+    {
+        $request->validate([
+            'title' => 'required',
+            'sub_title' => 'required',
+            'desc' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg'
+        ]);
+        
+        $image = $request->file('image');
+        $data = About::findOrFail($about->id);
+
+        if($image){
+            $name = "about-logo.jpeg";
+            Storage::disk('local')->delete('public/settings/'.$name);
+            $image->storeAs('public/settings', $name);
+        }else{
+    
+            $data->update([
+                'title' => $request->title,
+                'sub_title' => $request->sub_title,
+                'desc' => $request->desc,
+            ]);
+        }
 
         if($data){
             //redirect dengan pesan sukses
