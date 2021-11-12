@@ -29,7 +29,7 @@
                 	<div class="blog-single padding-right">
 						<div class="inner-box">
 							<div class="image-box">
-                                <figure class="image"><img src="{{ asset('storage/public/events/').$event->event_image }}" alt=""></figure>
+                                <figure class="image"><img src="{{ asset('storage/events/.$event->event_image') }}" alt=""></figure>
                                 <span class="date">{{ $event->event_date_start }} - {{ $event->event_date_end }}</span>
                             </div>
                             <div class="lower-content">
@@ -63,7 +63,7 @@
                                         @forelse ($event_latest as $latest)
                                             <div class="col">
                                                 <a href="{{ route('event.show', $latest->event_id) }}">
-                                                    <img class="rounded" src="{{ asset('storage/public/events/').$latest->event_image }}" alt="">
+                                                    <img class="rounded" src="{{ asset('storage/events/.$latest->event_image') }}" alt="">
                                                     <div style="margin-top: 30px">
                                                         <p>{{ $latest->event_date_start }} - {{ $latest->event_date_end }}<br>
                                                         <b>{{ $latest->event_name }}</b></p>

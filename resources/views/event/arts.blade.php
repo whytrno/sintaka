@@ -25,8 +25,8 @@
     <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title light centered">
-            <h2>We Provide Different Services In Interior Field</h2>
-            <div class="text">Survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple.</div>
+            <h2>Galeri kesenian alam di Kabupaten Karanganyar</h2>
+            {{-- <div class="text">Survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple.</div> --}}
         </div>
         
         <div class="row clearfix">

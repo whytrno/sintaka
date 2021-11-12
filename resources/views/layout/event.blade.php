@@ -10,8 +10,8 @@
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
-<link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-<link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('assets/images/sintaka-logo-kecil.jpg') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/images/sintaka-logo-kecil.jpg') }}" type="image/x-icon">
 <script src="https://kit.fontawesome.com/61ede77fc1.js" crossorigin="anonymous"></script>
 
 <!-- Responsive -->
@@ -53,6 +53,7 @@
                                 <ul class="navigation clearfix">
                                     <li><a href="{{ route('index') }}">Beranda</a></li>
                                     <li><a href="{{ route('events') }}">Event</a></li>
+                                    <li><a href="{{ route('infos') }}">Informasi</a></li>
                                     <li class="dropdown"><a href="#">Destinasi</a>
                                         <ul>
                                             @forelse ($destination_type as $type)

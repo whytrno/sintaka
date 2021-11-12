@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\EventController;
-use App\Http\Controllers\FullCalenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +17,16 @@ use App\Http\Controllers\FullCalenderController;
 
 Route::get('videos', 'HomeController@videos')->name('videos');
 Route::get('events', 'HomeController@events')->name('events');
+Route::get('infos', 'HomeController@infos')->name('infos');
 Route::get('about', 'HomeController@about')->name('about');
 Route::get('arts', 'HomeController@arts')->name('arts');
 Route::get('destinations', 'HomeController@destinations')->name('destinations');
 Route::get('destination/type/{destinationtype}', 'HomeController@type')->name('destination.type');
 Route::get('destination/shows/{destination}', 'HomeController@destinationShow')->name('destination.shows');
 Route::get('event/shows/{event}', 'HomeController@eventShow')->name('event.shows');
+Route::get('info/shows/{info}', 'HomeController@infoShow')->name('info.shows');
 Route::post('event/search', 'HomeController@eventSearch')->name('event.search');
+Route::post('info/search', 'HomeController@infoSearch')->name('info.search');
 Route::resource('/', HomeController::class);
 
 Route::get('admin/events', 'EventController@admin')->name('admin.events');
@@ -42,10 +44,6 @@ Route::get('admin/editInfo/{info}', 'InformationController@edit')->name('admin.e
 Route::post('admin/updateInfo/{info}', 'InformationController@update')->name('admin.updateInfo');
 Route::get('admin/destroyInfo/{info}', 'InformationController@destroy')->name('admin.destroyInfo');
 Route::resource('info', InformationController::class);
-
-Route::get('fullcalender', [FullCalenderController::class, 'index']);
-Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
-Route::post('fullcalenderAjax/add', [FullCalenderController::class, 'add']);
 
 Route::get('admin/users', 'UserController@index')->name('admin.users');
 Route::get('admin/addUser', 'UserController@create')->name('admin.addUser');

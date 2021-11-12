@@ -6,6 +6,7 @@ use App\Models\Info;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class InformationController extends Controller
 {
@@ -49,11 +50,19 @@ class InformationController extends Controller
             'info_desc' => 'required',
             'info_image' => 'required|image|mimes:png,jpg,jpeg'
         ]);
+        
 
         $image = $request->file('info_image');
+        // $img = Image::make($image)->resize(300, 200);
         $image->storeAs('public/infos', $image->hashName());
 
         
+        // $image_resize = Image::make(Storage::get('public/infos/K9IvZwEERvcXD5XHFvktCrkyLO33KvI81lazemzv.jpg'));
+        // $image_resize = Image::make(Storage::get('public/infos/'.$image->hashName()));
+        // $image_resize = Image::make($image);
+        // $image_resize->resize(50, 50);
+        // $image_resize->save(public_path('infos').$image->hashName());
+
         $input = Info::create([
             'info_title' => $request->info_title,
             'info_desc' => $request->info_desc,

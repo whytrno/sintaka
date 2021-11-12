@@ -40,7 +40,7 @@
                             <div class="lower-content">
                                 <h3><a href="{{ route('event.shows', $data->event_id) }}">{{ $data->event_name }}</a></h3>
                                 <div class="text">{{ strip_tags(Str::limit($data->event_desc, 200, $end=" ...")) }}</div>
-                                <div class="link-box"><a href="{{ route('event.show', $data->event_id) }}" class="theme-btn read-more">Read more</a></div>
+                                <div class="link-box"><a href="{{ route('event.shows', $data->event_id) }}" class="theme-btn read-more">Read more</a></div>
                             </div>
                         </div>
                     </div>

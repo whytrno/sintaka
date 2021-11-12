@@ -54,6 +54,16 @@ class HomeController extends Controller
 
         return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
     }
+    
+    public function infos(Info $info)
+    {
+        $info = Info::latest()->paginate(5);
+        $info_latest = Info::limit(3)->inRandomOrder()->get();
+        $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
+
+        return view('event.infos', compact('info', 'info_latest', 'destination_type', 'setting_get'));
+    }
 
     public function arts(Art $art)
     {
@@ -74,6 +84,17 @@ class HomeController extends Controller
         
         return view('event.events', compact('event', 'event_latest', 'destination_type', 'setting_get'));
     }
+
+    public function infoSearch(Request $request){
+        $keyword = $request->info_title;
+
+        $info = Info::where('info_title', 'like', "%" . $keyword . "%")->paginate(5);
+        $info_latest = Info::limit(3)->inRandomOrder()->get();
+        $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
+        
+        return view('event.infos', compact('info', 'info_latest', 'destination_type', 'setting_get'));
+    }
     
     public function eventShow(Event $event)
     {
@@ -82,6 +103,15 @@ class HomeController extends Controller
         $setting_get = Setting::where('setting_id', 1)->first();
         
         return view('event.event-detail', compact('event', 'event_latest', 'destination_type', 'setting_get'));
+    }
+    
+    public function infoShow(Info $info)
+    {
+        $info_latest = Info::limit(3)->inRandomOrder()->get();
+        $destination_type = DestinationType::all();
+        $setting_get = Setting::where('setting_id', 1)->first();
+        
+        return view('event.info-detail', compact('info', 'info_latest', 'destination_type', 'setting_get'));
     }
     
     public function destinations(Request $request)

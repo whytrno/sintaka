@@ -50,6 +50,9 @@
 				@forelse ($info as $data2)
 				<div class="service-block col-lg-6 col-md-6 col-sm-12" style="margin-bottom: 15px">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+						<div class="image">
+							<a href="#"><img src="{{ asset('storage/infos/'.$data2->info_image) }}" alt="" /></a>
+						</div>
 						<div class="lower-content">
 							<h3><a href="residental-interior.html">{{ $data2->info_title }}</a></h3>
 							<div class="text"><p>{{strip_tags(Str::limit($data2->info_desc, 250, $end=" ..."))}}</p></div>
@@ -131,7 +134,7 @@
 			<!-- Sec Title -->
 			<div class="sec-title-two centered">
 				<h2>Testimoni</h2>
-				<div class="title-text">Thousands of people done interior</div>
+				{{-- <div class="title-text">Thousands of people done interior</div> --}}
 			</div>
 
 			<div class="testimonial-carousel owl-carousel owl-theme">
