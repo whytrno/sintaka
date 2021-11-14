@@ -72,11 +72,11 @@
                   <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $destination->destination_address }}" name="destination_address">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
+                  <label for="exampleInputFile">Pilih gambar <b>(840x360)</b></label>
                   <div class="input-group">
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="exampleInputFile" name="destination_image">
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      <label class="custom-file-label" for="exampleInputFile">Pilih gambar</label>
                     </div>
                     <div class="input-group-append">
                       <span class="input-group-text">Upload</span>

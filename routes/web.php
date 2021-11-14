@@ -59,6 +59,14 @@ Route::get('admin/editDestination/{destination}', 'DestinationController@edit')-
 Route::get('admin/destroyDestination/{destination}', 'DestinationController@destroy')->name('admin.destroyDestination');
 Route::resource('destination', DestinationController::class);
 
+Route::get('admin/services', 'ServiceController@admin')->name('admin.services');
+Route::get('admin/addService', 'ServiceController@create')->name('admin.addService');
+Route::post('admin/storeService', 'ServiceController@store')->name('admin.storeService');
+Route::get('admin/editService/{service}', 'ServiceController@edit')->name('admin.editService');
+Route::post('admin/updateService/{service}', 'ServiceController@update')->name('admin.updateService');
+Route::get('admin/destroyService/{service}', 'ServiceController@destroy')->name('admin.destroyService');
+Route::resource('service', ServiceController::class);
+
 Route::get('admin/videos', 'VideoController@index')->name('admin.videos');
 Route::get('admin/addVideo', 'VideoController@create')->name('admin.addVideo');
 Route::post('admin/storeVideo', 'VideoController@store')->name('admin.storeVideo');

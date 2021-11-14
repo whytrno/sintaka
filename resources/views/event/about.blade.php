@@ -32,7 +32,7 @@
                     <h2>{{ $about->title }}</h2>
                     <div class="bold-text">{{ $about->sub_title }}</div>
                     <div class="text">
-                        <p>{{ $about->desc }}</p>
+                        <p>{!! $about->desc !!}</p>
                     </div>
                 </div>
             </div>

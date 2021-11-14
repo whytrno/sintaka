@@ -39,11 +39,11 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
+                  <label for="exampleInputFile">Pilih gambar <b>(370x215)</b></label>
                   <div class="input-group">
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="exampleInputFile" name="event_image">
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      <label class="custom-file-label" for="exampleInputFile">Pilih gambar</label>
                     </div>
                     <div class="input-group-append">
                       <span class="input-group-text">Upload</span>
@@ -59,12 +59,10 @@
                     </div>
                     <div class="card-body">
                       <textarea id="summernote" name="event_desc">
-                        Place <em>some</em> <u>text</u> <strong>here</strong>
+                        Masukan deskripsi acara
                       </textarea>
                     </div>
-                    <div class="card-footer">
-                      Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin.
-                    </div>
+                    
                   </div>
               </div>
               <!-- /.card-body -->

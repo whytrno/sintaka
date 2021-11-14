@@ -16,6 +16,7 @@ use App\Models\Testimoni;
 use App\Models\Video;
 use App\Models\Team;
 use App\Models\Art;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
@@ -30,10 +31,11 @@ class HomeController extends Controller
         $destination_type = DestinationType::all();
         $setting_get = Setting::where('setting_id', 1)->first();
         $slider = Slider::all();
+        $service = Service::all();
         $testimoni = Testimoni::all();
         $info = Info::limit(2)->latest()->get();
         
-        return view('event.index', compact('info', 'event', 'destination_type', 'setting_get', 'slider', 'testimoni'));
+        return view('event.index', compact('service', 'info', 'event', 'destination_type', 'setting_get', 'slider', 'testimoni'));
     }
     public function about()
     {

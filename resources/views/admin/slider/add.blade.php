@@ -27,11 +27,11 @@
                   <textarea name="slider_desc" class="form-control" placeholder="Masukan deskripsi"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
+                  <label for="exampleInputFile">Pilih gambar <b>(1920x782)</b></label>
                   <div class="input-group">
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="exampleInputFile" name="slider_img">
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      <label class="custom-file-label" for="exampleInputFile">Pilih gambar</label>
                     </div>
                     <div class="input-group-append">
                       <span class="input-group-text">Upload</span>

@@ -36,25 +36,12 @@
                   <input readonly hidden type="text" class="form-control" id="exampleInputEmail1" value="{{ $destination->destination_id }}" name="destination_id">
                   <input readonly type="text" class="form-control" id="exampleInputEmail1" value="{{ $destination->destination_name }}">
                 </div>
-                
-                {{-- <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="destination_image">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                    </div>
-                </div> --}}
                 <div class="form-group">
                   <div class="input-group">
                     <div class="custom-file">
                       <input type="file" name="file[]" accept="image/*" multiple="multiple" class="custom-file-input" id="exampleInputFile">
                       
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      <label class="custom-file-label" for="exampleInputFile">Pilih gambar <b>(840x360)</b></label>
                     </div>
                     <div class="input-group-append">
                       <button type="submit" class="btn btn-success">Upload</button>

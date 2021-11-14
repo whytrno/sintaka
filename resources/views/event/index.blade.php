@@ -97,6 +97,36 @@
 	</section>
 	<!-- End Services Section -->
 
+	<!-- Services Section Two -->
+	<section class="services-section-two">
+		<div class="auto-container">
+			<!-- Sec Title -->
+			<div class="sec-title">
+				<h2>Layanan SINTAKA</h2>
+				<div class="text">Sintaka dapat memberikan berbagai kemudahan bagi para penggunanya, diantaranya adalah akses organisasi informasi, fleksibel pengembangan, serta penyajian informasi pariwisata.</div>
+			</div>
+			
+			<div class="row clearfix">
+				
+				@forelse ($service as $data2)
+					<!-- Service Block -->
+					<div class="service-block-two col-lg-4 col-md-6 col-sm-12">
+						<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+							<div class="content">
+								<h3><a href="office-interior.html">{{ $data2->title }}</a></h3>
+								<div class="text">{{ $data2->content }}</div>
+							</div>
+						</div>
+					</div>
+				@empty
+					
+				@endforelse
+				
+			</div>
+			
+		</div>
+	</section>
+	
 	<!-- Fluid Section One -->
     <section class="fluid-section-one">
     	<div class="outer-container clearfix">
@@ -116,10 +146,10 @@
 			</div>
 
 			<!--Image Column-->
-        	<div class="image-column" style="background-image: url({{ asset('storage/assets/images/panjang.png') }})">
+        	<div class="image-column" style="background-image: url({{ asset('storage/assets/images/manfaat.png') }})">
 				<div class="inner-column">
 					<div class="image">
-						<img src="{{ asset('storage/assets/images/logo-sintakaa.jpg') }}" alt="">
+						<img src="{{ asset('storage/assets/images/manfaat.png') }}" alt="">
 					</div>
 				</div>
             </div>
@@ -157,4 +187,6 @@
 		</div>
 	</section>
 	<!-- End Testimonial Section -->
+
+	
 @endsection

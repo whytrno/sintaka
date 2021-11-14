@@ -13,6 +13,11 @@ use App\Models\Slider;
 use App\Models\About;
 use App\Models\Testimoni;
 use App\Models\Team;
+use App\Models\Info;
+use App\Models\Service;
+use App\Models\Video;
+use App\Models\Art;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 use Redirect,Response;
@@ -74,8 +79,14 @@ class AdminController extends Controller
         $about = About::where('id', 1)->first();
         $count_destination = Destination::count();
         $count_event = Event::count();
+        $count_information = Info::count();
+        $count_service = Service::count();
+        $count_video = Video::count();
+        $count_testimoni = Testimoni::count();
+        $count_art = Art::count();
+        $count_user = User::count();
         $team = Team::all();
-        return view('admin.setting', compact('setting_get', 'team', 'about', 'slider', 'testimoni', 'count_destination', 'count_event'));
+        return view('admin.setting', compact('setting_get', 'team', 'about', 'slider', 'testimoni', 'count_user', 'count_art', 'count_testimoni', 'count_information', 'count_video', 'count_service', 'count_destination', 'count_event'));
     }
 
     public function login()
@@ -128,8 +139,13 @@ class AdminController extends Controller
             $name = "about-logo.jpeg";
             Storage::disk('local')->delete('public/settings/'.$name);
             $image->storeAs('public/settings', $name);
+            
+            $data->update([
+                'title' => $request->title,
+                'sub_title' => $request->sub_title,
+                'desc' => $request->desc,
+            ]);
         }else{
-    
             $data->update([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,

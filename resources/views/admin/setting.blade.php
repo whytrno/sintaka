@@ -43,13 +43,46 @@
                   </div>
                 </div>
               </form>
-
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                  <b>Acara</b> <a class="float-right">{{ $count_event }}</a>
+                  <a href="{{ route('admin.infos') }}">
+                    <b>Informasi</b> <a class="float-right">{{ $count_information }}</a>
+                  </a>  
                 </li>
                 <li class="list-group-item">
-                  <b>Wisata</b> <a class="float-right">{{ $count_destination }}</a>
+                  <a href="{{ route('admin.events') }}">
+                    <b>Acara</b> <a class="float-right">{{ $count_event }}</a>
+                  </a>  
+                </li>
+                <li class="list-group-item">
+                  <a href="{{ route('admin.destinations') }}">
+                    <b>Wisata</b> <a class="float-right">{{ $count_destination }}</a>
+                  </a>  
+                </li>
+                <li class="list-group-item">
+                  <a href="{{ route('admin.services') }}">
+                    <b>Service</b> <a class="float-right">{{ $count_service }}</a>
+                  </a>  
+                </li>
+                <li class="list-group-item">
+                  <a href="{{ route('admin.videos') }}">
+                    <b>Video</b> <a class="float-right">{{ $count_video }}</a>
+                  </a>  
+                </li>
+                <li class="list-group-item">
+                  <a href="{{ route('admin.testimonis') }}">
+                   <b>Testimoni</b> <a class="float-right">{{ $count_testimoni }}</a>
+                  </a>  
+                </li>
+                <li class="list-group-item">
+                  <a href="{{ route('admin.arts') }}">
+                    <b>Kesenian</b> <a class="float-right">{{ $count_art }}</a>
+                  </a>  
+                </li>
+                <li class="list-group-item">
+                  <a href="{{ route('admin.users') }}">
+                   <b>Pengguna</b> <a class="float-right">{{ $count_user }}</a>
+                  </a>    
                 </li>
               </ul>
             </div>
@@ -167,22 +200,32 @@
                         <textarea name="sub_title" class="form-control" id="inputExperience" placeholder="Experience">{{ $about->sub_title }}</textarea>
                       </div>
                     </div>
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                       <label for="inputExperience" class="col-sm-2 col-form-label">Deskripsi</label>
                       <div class="col-sm-10">
                         <textarea name="desc" class="form-control" id="inputExperience" placeholder="Experience">{{ $about->desc }}</textarea>
                       </div>
-                    </div>
-                    {{-- <div class="form-group row">
-                      <label for="inputEmail" class="col-sm-2 col-form-label">Gambar  </label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="address" value="{{ $about->address }}">
-                      </div>
                     </div> --}}
+                    <div class="card card-outline card-info">
+                      <!-- /.card-header -->
+                      <div class="card-header">
+                          <h3 class="card-title">
+                          Deskripsi
+                          </h3>
+                      </div>
+                      <div class="card-body">
+                        <textarea id="summernote" name="desc">
+                          {{ $about->desc }}
+                        </textarea>
+                      </div>
+                      <div class="card-footer">
+                        Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin.
+                      </div>
+                    </div>
                     <div class="form-group row">
                       <label for="inputEmail" class="col-sm-2 col-form-label">Gambar  </label>
                       <div class="custom-file">
-                        <input name="image" type="file" class="custom-file-input" id="inputGroupFile02" value="{{ $about->image }}">
+                        <input name="image" type="file" class="custom-file-input" id="inputGroupFile02">
                         <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                       </div>
                     </div>
