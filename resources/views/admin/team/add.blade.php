@@ -20,11 +20,11 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="name">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama" name="name">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Role</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan tempat acara" name="role">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan role" name="role">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Pilih gambar <b>(300x377)</b></label>

@@ -20,7 +20,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Judul informasi</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="info_title">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan judul informasi" name="info_title">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Deskripsi informasi</label>

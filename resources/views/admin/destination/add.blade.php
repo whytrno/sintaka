@@ -20,7 +20,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama wisata</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="destination_name">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama wisata" name="destination_name">
                 </div>
                 <select class="form-control" name="destination_type_id">
                   @forelse ($destinationtype as $type)
@@ -63,7 +63,7 @@
               <!-- /.card-body -->
                 <div class="form-group">
                   <label for="exampleInputEmail1">Alamat</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="destination_address">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan alamat wisata (url dari google maps)" name="destination_address">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Pilih gambar <b>(840x360)</b></label>

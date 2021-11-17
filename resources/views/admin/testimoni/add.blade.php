@@ -19,12 +19,12 @@
                 @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="name">
+                  <label for="exampleInputEmail1">Nama</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama" name="name">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Isi</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan tempat acara" name="content">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan isi testimoni" name="content">
                 </div>
               </div>
               <!-- /.card-body -->

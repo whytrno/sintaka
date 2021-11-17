@@ -40,7 +40,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('admin.index') }}" class="nav-link">Home</a>
+        <a href="{{ url()->previous() }}" class="nav-link">Back</a>
       </li>
     </ul>
 
@@ -146,7 +146,7 @@
             <a href="{{ route('admin.services') }}" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
-                Service
+                Layanan
                 {{-- <span class="badge badge-info right">2</span> --}}
               </p>
             </a>

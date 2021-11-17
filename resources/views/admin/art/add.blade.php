@@ -51,7 +51,7 @@
 
   @endsection --}}
 
-  @extends('layout.admin')
+@extends('layout.admin')
 @section('title', 'Admin | Tambah Gambar Wisata')
 @section('judul-content', 'Tambah Gambar Wisata')
 @section('content-active', 'Tambah Gambar Wisata')
@@ -64,7 +64,7 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Tambah gambar wisata</h3>
+              <h3 class="card-title">Tambah gambar kesenian</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -85,8 +85,8 @@
                 @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Nama wisata</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="name">
+                  <label for="exampleInputEmail1">Nama kesenian</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Masukan nama kesenian">
                 </div>
                 <div class="form-group">
                   <div class="input-group">

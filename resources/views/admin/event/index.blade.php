@@ -32,7 +32,6 @@
                     <thead>
                     <tr>
                       <th>Nama acara</th>
-                      <th>Deskripsi</th>
                       <th>Tempat</th>
                       <th>Tanggal mulai - akhir</th>
                       <th>Foto</th>
@@ -43,9 +42,6 @@
                     @forelse ($event as $data)
                       <tr>
                         <td>{{ $data->event_name }}</td>
-                        <td>
-                          {!! Str::limit($data->event_desc, 150, $end=" ...") !!}
-                        </td>
                         <td>{{ $data->event_place }}</td>
                         <td>{{ $data->event_date_start}} - {{ $data->event_date_end }}</td>
                         <td><img style="width: 150px; height: 150px" src="{{ asset('storage/events/'.$data->event_image) }}" alt="" /></td>

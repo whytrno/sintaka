@@ -1,7 +1,7 @@
 @extends('layout.admin')
-@section('title', 'Admin | Ubah Service')
-@section('judul-content', 'Ubah Service')
-@section('content-active', 'Ubah Service')
+@section('title', 'Admin | Ubah Layanan')
+@section('judul-content', 'Ubah Layanan')
+@section('content-active', 'Ubah Layanan')
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -11,7 +11,7 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Ubah data service</h3>
+              <h3 class="card-title">Ubah data layanan</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -21,11 +21,11 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Judul</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="title" value="{{ $service->title }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="{{ $service->title }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Isi</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan tempat acara" name="content" value="{{ $service->content }}">
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ $service->content }}">
                 </div>
               </div>
               <!-- /.card-body -->

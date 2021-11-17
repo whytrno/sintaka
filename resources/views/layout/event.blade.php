@@ -93,9 +93,9 @@
 				<!--Social Links-->
 				<div class="social-links">
 					<ul class="clearfix">
-						<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-						<li><a href="#"><span class="fab fa-instagram"></span></a></li>
-						<li><a href="#"><span class="fab fa-tiktok"></span></a></li>
+						<li><a href="https://twitter.com/Sintaka_?t=DRygtgetecICFEP_yip1QA&s=08"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="http://instagram.com/sintaka_karanganyar"><span class="fab fa-instagram"></span></a></li>
+						<li><a href="tiktok.com/@sintaka_"><span class="fab fa-tiktok"></span></a></li>
 					</ul>
                 </div>
             </nav>
@@ -125,6 +125,13 @@
                                     	<a href="{{ route('index') }}"><img style="max-width: 250px; max-height: 100px" src="{{ asset('storage/settings/logo.jpg') }}" alt="" /></a>
                                     </div>
                                     <div class="text">@yield('description')</div>
+								</div>
+                                <div class="footer-widget logo-widget">
+                                    <ul class="social-icons">
+                                        <li><a href="https://twitter.com/Sintaka_?t=DRygtgetecICFEP_yip1QA&s=08"><span class="fab fa-twitter"></span></a></li>
+                						<li><a href="http://instagram.com/sintaka_karanganyar"><span class="fab fa-instagram"></span></a></li>
+                						<li><a href="tiktok.com/@sintaka_"><span class="fab fa-tiktok"></span></a></li>
+                                    </ul>
 								</div>
 							</div>
 

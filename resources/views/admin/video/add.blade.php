@@ -20,7 +20,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Video url</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="video_url">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan url video (tiktok embeded url)" name="video_url">
                 </div>
               </div>
               <!-- /.card-body -->

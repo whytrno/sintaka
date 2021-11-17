@@ -1,7 +1,7 @@
 @extends('layout.admin')
-@section('title', 'Admin | Pengguna')
-@section('judul-content', 'Pengguna')
-@section('content-active', 'Pengguna')
+@section('title', 'Admin | Admin')
+@section('judul-content', 'Admin')
+@section('content-active', 'Admin')
 @section('content')
     <!-- Main content -->
     <section class="content">

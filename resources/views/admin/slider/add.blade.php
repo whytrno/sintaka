@@ -20,11 +20,11 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Judul Slider</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="slider_title">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan judul slider" name="slider_title">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Deskripsi Slider</label>
-                  <textarea name="slider_desc" class="form-control" placeholder="Masukan deskripsi"></textarea>
+                  <textarea name="slider_desc" class="form-control" placeholder="Masukan deskripsi slider"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Pilih gambar <b>(1920x782)</b></label>

@@ -21,11 +21,11 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama acara" name="name" value="{{ $testimoni->name }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{ $testimoni->name }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Isi</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan tempat acara" name="content" value="{{ $testimoni->content }}">
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ $testimoni->content }}">
                 </div>
               </div>
               <!-- /.card-body -->
