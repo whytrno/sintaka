@@ -43,11 +43,11 @@
                                             </div>
                                             <div class="col">
                                                 <p><i style="color: orange" class="fas fa-map-marker-alt">&nbsp;</i>  {{ $event->event_place }}</p>
-                                                <p><i style="color: orange" class="fas fa-phone-alt"></i>&nbsp; <a style="color: grey" href="tel:+62123456789">+62123456789</a></p>
+                                                <p><i style="color: orange" class="fas fa-phone-alt"></i>&nbsp; <a style="color: grey" href="wa.me/{{ $setting_get->no_hp }}">{{ $setting_get->no_hp }}</a></p>
                                             </div>
                                             <div class="col">
-                                                <p><i style="color: orange" class="fas fa-globe"></i>&nbsp; <a style="color: grey" href="www.website.com">www.website.com</a></p>
-                                                <p><i style="color: orange" class="fas fa-envelope"></i>&nbsp; <a style="color: grey" href="mailto:name@email.com">name@email.com</a></p>
+                                                <p><i style="color: orange" class="fas fa-globe"></i>&nbsp; <a style="color: grey" href="#">{{ request()->getHost(); }}</a></p>
+                                                <p><i style="color: orange" class="fas fa-envelope"></i>&nbsp; <a style="color: grey" href="mailto:{{ $setting_get->email }}">{{ $setting_get->email }}</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
                                     <div class="row">
                                         @forelse ($event_latest as $latest)
                                             <div class="col">
-                                                <a href="{{ route('event.show', $latest->event_id) }}">
+                                                <a href="{{ route('event.shows', $latest->event_id) }}">
                                                     <img class="rounded" src="{{ asset('storage/events/.$latest->event_image') }}" alt="">
                                                     <div style="margin-top: 30px">
                                                         <p>{{ $latest->event_date_start }} - {{ $latest->event_date_end }}<br>

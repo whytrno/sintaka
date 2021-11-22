@@ -131,8 +131,9 @@ class HomeController extends Controller
         $destination_get = Destination::where('destination_type_id', $keyword)->get();
         $destination_type = DestinationType::all();
         $setting_get = Setting::where('setting_id', 1)->first();
+        $destination_name = DestinationType::where('destination_type_id', $keyword)->get();
         
-        return view('event.destinations', compact('destination_get', 'destination_type', 'keyword', 'setting_get'));
+        return view('event.destinations', compact('destination_get', 'destination_name', 'destination_type', 'keyword', 'setting_get'));
     }
     
     public function destinationShow(Destination $destination)
